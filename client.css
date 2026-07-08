@@ -1022,15 +1022,16 @@ nav .active{
 
 }
 
-.body{
+body{
     margin: 0;
     padding: 12px; /* épaisseur du cadre */
     background: #12734A;
 }
 
 .container{
-    background:  #fff;
+    background: #fff;
     min-height: calc(100vh - 24px);
     border-radius: 25px;
     overflow: hidden;
 }
+
