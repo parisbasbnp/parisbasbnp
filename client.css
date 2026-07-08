@@ -1,34 +1,3 @@
-.forgot-page{
-
-    min-height:100vh;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    background:#12734A;
-
-    padding:20px;
-
-}
-
-.forgot-card{
-
-    width:100%;
-
-    max-width:450px;
-
-    background:white;
-
-    border-radius:18px;
-
-    overflow:hidden;
-
-    box-shadow:0 15px 40px rgba(0,0,0,.25);
-
-}
 
 /* =======================================
    RESET
@@ -1051,4 +1020,17 @@ nav .active{
 
     cursor:pointer;
 
+}
+
+body{
+    margin: 0;
+    padding: 12px; /* épaisseur du cadre */
+    background: #12734A;
+}
+
+.container{
+    background:  #fff;
+    min-height: calc(100vh - 24px);
+    border-radius: 25px;
+    overflow: hidden;
 }
