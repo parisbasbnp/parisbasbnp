@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact</title>
+
+<link rel="stylesheet" href="contact.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<div class="forgot-page">
+
+
+<div class="app">
+
+
+<!-- HEADER -->
+
+<header>
+
+
+<div class="header-top">
+
+
+<h2>Contact</h2>
+
+
+<div class="header-icons">
+
+
+<div class="notif">
+
+<i class="fa-regular fa-bell"></i>
+
+<span>1</span>
+
+</div>
+
+
+<button>
+
+<i class="fa-solid fa-power-off"></i>
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+<div class="welcome">
+
+
+<p>Bonjour 👋</p>
+
+<span>Comment pouvons-nous vous aider ?</span>
+
+
+</div>
+
+
+</header>
+
+
+
+
+
+<!-- CHAT -->
+
+
+<main>
+
+
+<section class="chat-box">
+
+
+
+<div class="chat-header">
+
+
+<i class="fa-solid fa-headset"></i>
+
+
+<div>
+
+<h3>Conseiller bancaire</h3>
+
+<p>En ligne</p>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="messages" id="messages">
+
+
+<div class="message banque">
+
+Bonjour 👋 Bienvenue. Comment puis-je vous aider ?
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="suggestions">
+
+
+<button onclick="envoyerSuggestion('Salut')">
+Salut
+</button>
+
+
+<button onclick="envoyerSuggestion('Je veux connaître vos services')">
+Services
+</button>
+
+
+<button onclick="envoyerSuggestion('Quels sont vos comptes ?')">
+Comptes
+</button>
+
+
+</div>
+
+
+
+
+
+<div class="input-zone">
+
+
+<input 
+type="text"
+id="messageInput"
+placeholder="Écrire un message...">
+
+
+
+<button onclick="envoyerMessage()">
+
+<i class="fa-solid fa-paper-plane"></i>
+
+</button>
+
+
+</div>
+
+
+
+</section>
+
+
+</main>
