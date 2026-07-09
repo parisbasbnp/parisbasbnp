@@ -324,15 +324,6 @@ main{
 
 }
 
-/* =======================================
-   NAVIGATION BAS IDENTIQUE
-======================================= */
-
-
-/* =======================================
-   NAVIGATION BAS IDENTIQUE AUX AUTRES PAGES
-======================================= */
-
 nav{
 
     position:fixed;
@@ -343,17 +334,13 @@ nav{
 
     transform:translateX(-50%);
 
-    width:100%;
-
     max-width:430px;
 
-    height:75px;
+    width:100%;
 
     background:white;
 
     display:flex;
-
-    align-items:center;
 
     padding:12px 0;
 
@@ -369,8 +356,6 @@ nav button{
 
     flex:1;
 
-    height:100%;
-
     border:none;
 
     background:none;
@@ -381,15 +366,11 @@ nav button{
 
     flex-direction:column;
 
-    justify-content:center;
-
     align-items:center;
 
+    justify-content:center;
+
     gap:5px;
-
-    font-size:12px;
-
-    cursor:pointer;
 
 }
 
@@ -411,17 +392,9 @@ nav button span{
 
 
 
-nav button.active{
+nav .active{
 
     color:#0B9E62;
-
-}
-
-
-
-nav button:active{
-
-    transform:scale(.95);
 
 }
 
