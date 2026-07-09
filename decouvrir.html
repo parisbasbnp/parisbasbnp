@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -14,138 +15,159 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
 }
 
 body{
-background:#f4f7f5;
-padding-bottom:90px;
+    background:#f4f7f5;
+    padding-bottom:100px;
 }
 
 .app{
-max-width:480px;
-margin:auto;
+    max-width:480px;
+    margin:auto;
 }
+
+
+/* HEADER */
 
 header{
-background:#00843D;
-color:white;
-padding:20px;
-text-align:center;
-border-bottom-left-radius:20px;
-border-bottom-right-radius:20px;
-box-shadow:0 3px 10px rgba(0,0,0,.15);
+    background:#00843D;
+    color:white;
+    padding:20px;
+    text-align:center;
+    border-bottom-left-radius:20px;
+    border-bottom-right-radius:20px;
+    box-shadow:0 3px 10px rgba(0,0,0,.15);
 }
 
+
+/* IMAGE */
+
 .banner{
-margin:15px;
-height:210px;
-border-radius:18px;
-overflow:hidden;
-position:relative;
-box-shadow:0 5px 15px rgba(0,0,0,.15);
-background:#ddd;
+    margin:15px;
+    height:210px;
+    border-radius:18px;
+    overflow:hidden;
+    position:relative;
+    background:#ddd;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
 }
 
 .banner img{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-object-fit:cover;
-opacity:0;
-transition:opacity .8s;
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    object-fit:cover;
+    opacity:0;
+    transition:opacity .8s ease;
 }
 
 .banner img.active{
-opacity:1;
+    opacity:1;
 }
 
+
+/* CONTENU */
+
 main{
-padding:15px;
+    padding:15px;
 }
 
 .title{
-font-size:21px;
-margin:18px 0 15px;
-color:#222;
+    font-size:21px;
+    margin:18px 0 15px;
+    color:#222;
 }
 
+
+/* CARTES */
+
 .card{
-background:white;
-border-radius:18px;
-padding:18px;
-display:flex;
-align-items:center;
-gap:15px;
-margin-bottom:15px;
-box-shadow:0 5px 15px rgba(0,0,0,.08);
+    background:white;
+    border-radius:18px;
+    padding:18px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
 }
 
 .card i{
-font-size:32px;
-color:#00843D;
-width:40px;
-text-align:center;
+    font-size:32px;
+    color:#00843D;
+    width:40px;
+    text-align:center;
 }
 
 .card h3{
-font-size:18px;
-margin-bottom:5px;
+    font-size:18px;
+    margin-bottom:5px;
 }
 
 .card p{
-font-size:14px;
-color:#666;
+    font-size:14px;
+    color:#666;
 }
 
+
+/* OFFRE */
+
 .offer{
-background:#00843D;
-color:white;
-border-radius:20px;
-padding:20px;
-box-shadow:0 5px 15px rgba(0,0,0,.15);
-margin-bottom:20px;
+    background:#00843D;
+    color:white;
+    border-radius:20px;
+    padding:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    margin-bottom:20px;
 }
 
 .offer h3{
-margin-bottom:10px;
+    margin-bottom:10px;
 }
 
 .offer p{
-line-height:22px;
+    line-height:22px;
 }
 
 .offer button{
-margin-top:15px;
-padding:12px 25px;
-border:none;
-border-radius:25px;
-background:white;
-color:#00843D;
-font-weight:bold;
-cursor:pointer;
+    margin-top:15px;
+    padding:12px 25px;
+    border:none;
+    border-radius:25px;
+    background:white;
+    color:#00843D;
+    font-weight:bold;
+    cursor:pointer;
 }
 
+
+/* ACTUALITES */
+
 .news{
-background:white;
-border-radius:18px;
-padding:18px;
-margin-bottom:15px;
-box-shadow:0 5px 15px rgba(0,0,0,.08);
-display:flex;
-gap:15px;
-align-items:center;
+    background:white;
+    border-radius:18px;
+    padding:18px;
+    margin-bottom:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    display:flex;
+    align-items:center;
+    gap:15px;
 }
 
 .news i{
-font-size:30px;
-color:#00843D;
+    font-size:30px;
+    color:#00843D;
 }
+
+
+/* NAVIGATION BAS */
 
 nav{
     position:fixed;
@@ -155,18 +177,20 @@ nav{
     height:75px;
     background:#fff;
     display:flex;
-    justify-content:space-evenly;
+    justify-content:space-around;
     align-items:center;
     border-top:1px solid #e6e6e6;
     box-shadow:0 -2px 10px rgba(0,0,0,.08);
     z-index:9999;
+    padding-bottom:env(safe-area-inset-bottom);
 }
+
 
 nav button{
     flex:1;
     height:100%;
     border:none;
-    background:none;
+    background:transparent;
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -176,23 +200,39 @@ nav button{
     cursor:pointer;
 }
 
+
 nav button i{
     font-size:22px;
     margin-bottom:5px;
 }
+
+
+nav button span{
+    font-size:12px;
+}
+
 
 nav button.active{
     color:#00843D;
     font-weight:600;
 }
 
+
+nav button:active{
+    transform:scale(.95);
+}
+
+
 </style>
 
 </head>
 
+
 <body>
 
+
 <div class="app">
+
 
 <header>
 
@@ -201,6 +241,8 @@ nav button.active{
 <p>Découvrez tous nos services</p>
 
 </header>
+
+
 
 <div class="banner">
 
@@ -212,9 +254,15 @@ nav button.active{
 
 </div>
 
+
+
 <main>
 
-<h2 class="title">Services populaires</h2>
+
+<h2 class="title">
+Services populaires
+</h2>
+
 
 <div class="card">
 
@@ -224,11 +272,15 @@ nav button.active{
 
 <h3>Transfert d'argent</h3>
 
-<p>Envoyez et recevez de l'argent rapidement partout.</p>
+<p>
+Envoyez et recevez de l'argent rapidement partout.
+</p>
 
 </div>
 
 </div>
+
+
 
 <div class="card">
 
@@ -238,11 +290,15 @@ nav button.active{
 
 <h3>Carte bancaire</h3>
 
-<p>Commandez et gérez vos cartes facilement.</p>
+<p>
+Commandez et gérez vos cartes facilement.
+</p>
 
 </div>
 
 </div>
+
+
 
 <div class="card">
 
@@ -252,29 +308,49 @@ nav button.active{
 
 <h3>Épargne</h3>
 
-<p>Préparez vos projets grâce à nos solutions d'épargne.</p>
+<p>
+Préparez vos projets grâce à nos solutions d'épargne.
+</p>
 
 </div>
 
 </div>
 
-<h2 class="title">Offre du moment</h2>
+
+
+<h2 class="title">
+Offre du moment
+</h2>
+
 
 <div class="offer">
 
-<h3>🎁 Offre Exclusive BNP Paribas</h3>
+<h3>
+🎁 Offre Exclusive BNP Paribas
+</h3>
+
 
 <p>
-
-Profitez d'avantages exclusifs sur vos paiements, vos virements et votre épargne directement depuis votre espace client.
-
+Profitez d'avantages exclusifs sur vos paiements,
+vos virements et votre épargne directement depuis
+votre espace client.
 </p>
 
-<button>Découvrir</button>
+
+<button>
+Découvrir
+</button>
+
 
 </div>
 
-<h2 class="title">Actualités</h2>
+
+
+
+<h2 class="title">
+Actualités
+</h2>
+
 
 <div class="news">
 
@@ -284,11 +360,15 @@ Profitez d'avantages exclusifs sur vos paiements, vos virements et votre épargn
 
 <h3>Nouvelles fonctionnalités</h3>
 
-<p>Découvrez les dernières améliorations de votre application.</p>
+<p>
+Découvrez les dernières améliorations de votre application.
+</p>
 
 </div>
 
 </div>
+
+
 
 <div class="news">
 
@@ -298,38 +378,72 @@ Profitez d'avantages exclusifs sur vos paiements, vos virements et votre épargn
 
 <h3>Sécurité renforcée</h3>
 
-<p>Votre compte bénéficie désormais d'une protection encore plus efficace.</p>
+<p>
+Votre compte bénéficie désormais d'une protection encore plus efficace.
+</p>
 
 </div>
 
 </div>
+
+
 </main>
+
+
+
+
 
 <nav>
 
-<button onclick="window.location.href='client.html'">
+
+<button onclick="location.href='client.html'">
+
 <i class="fa-solid fa-house"></i>
+
 <span>Accueil</span>
+
 </button>
 
-<button onclick="window.location.href='paiement.html'">
+
+
+<button onclick="location.href='paiement.html'">
+
 <i class="fa-solid fa-credit-card"></i>
+
 <span>Paiements</span>
+
 </button>
+
+
 
 <button class="active">
+
 <i class="fa-solid fa-compass"></i>
+
 <span>Découvrir</span>
+
 </button>
 
-<button onclick="window.location.href='contact.html'">
+
+
+<button onclick="location.href='contact.html'">
+
 <i class="fa-solid fa-comments"></i>
+
 <span>Contact</span>
+
 </button>
+
 
 </nav>
 
+
+
 </div>
+
+
+
+
 
 <script>
 
@@ -337,25 +451,21 @@ const images = document.querySelectorAll(".banner img");
 
 let index = 0;
 
-function changerImage(){
+
+setInterval(()=>{
 
 images[index].classList.remove("active");
 
-index++;
-
-if(index >= images.length){
-
-index = 0;
-
-}
+index = (index + 1) % images.length;
 
 images[index].classList.add("active");
 
-}
 
-setInterval(changerImage,4000);
+},4000);
+
 
 </script>
+
 
 </body>
 </html>
