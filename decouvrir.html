@@ -1,635 +1,322 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Découvrir</title>
-
-<link rel="stylesheet" href="client.css">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Inter',Arial,sans-serif;
-}
-
-
-body{
-
-    background:#F4F6F8;
-    color:#222;
-    overflow-x:hidden;
-    padding-bottom:120px;
-
-}
-
-
-.app{
-
-    width:100%;
-    max-width:430px;
-    min-height:100vh;
-    margin:auto;
-    background:#F4F6F8;
-
-}
-
-
-
-/* HEADER */
-
-header{
-
-    background:linear-gradient(180deg,#12B66A,#0B9E62);
-
-    color:white;
-
-    padding:35px 22px 45px;
-
-    text-align:center;
-
-    border-bottom-left-radius:35px;
-    border-bottom-right-radius:35px;
-
-}
-
-
-header h2{
-
-    font-size:30px;
-
-}
-
-
-header p{
-
-    margin-top:8px;
-
-    opacity:.9;
-
-}
-
-
-
-
-
-/* BANNER */
-
-.banner{
-
-    margin:20px 15px;
-
-    height:210px;
-
-    border-radius:22px;
-
-    overflow:hidden;
-
-    position:relative;
-
-    background:#ddd;
-
-    box-shadow:0 8px 18px rgba(0,0,0,.08);
-
-}
-
-
-
-.banner img{
-
-    position:absolute;
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
-
-    opacity:0;
-
-    transition:.8s;
-
-}
-
-
-
-.banner img.active{
-
-    opacity:1;
-
-}
-
-
-
-
-
-
-/* MAIN */
-
-
-main{
-
-    padding:0 15px 120px;
-
-}
-
-
-
-.title{
-
-    font-size:22px;
-
-    margin:25px 0 18px;
-
-}
-
-
-
-
-
-/* CARDS */
-
-
-.card{
-
-    background:white;
-
-    border-radius:24px;
-
-    padding:20px;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-
-    margin-bottom:15px;
-
-    border:1px solid #E8ECEF;
-
-    box-shadow:0 8px 18px rgba(0,0,0,.05);
-
-}
-
-
-
-.card i{
-
-    width:50px;
-
-    height:50px;
-
-    border-radius:15px;
-
-    background:#EAF8F1;
-
-    color:#0B9E62;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:24px;
-
-}
-
-
-
-.card h3{
-
-    font-size:18px;
-
-}
-
-
-
-.card p{
-
-    margin-top:5px;
-
-    color:#777;
-
-    font-size:14px;
-
-}
-
-
-
-
-
-/* OFFRE */
-
-
-.offer{
-
-    background:linear-gradient(180deg,#12B66A,#0B9E62);
-
-    color:white;
-
-    border-radius:24px;
-
-    padding:22px;
-
-    box-shadow:0 8px 18px rgba(0,0,0,.10);
-
-}
-
-
-
-.offer p{
-
-    margin-top:10px;
-
-    line-height:22px;
-
-}
-
-
-
-.offer button{
-
-    margin-top:18px;
-
-    padding:12px 25px;
-
-    border:none;
-
-    border-radius:25px;
-
-    background:white;
-
-    color:#0B9E62;
-
-    font-weight:bold;
-
-}
-
-
-
-
-
-/* ACTUALITES */
-
-
-.news{
-
-    background:white;
-
-    border-radius:24px;
-
-    padding:18px;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-
-    margin-bottom:15px;
-
-}
-
-
-
-.news i{
-
-    width:45px;
-
-    height:45px;
-
-    border-radius:14px;
-
-    background:#EAF8F1;
-
-    color:#0B9E62;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:22px;
-
-}
-
-nav{
-
-    position:fixed;
-
-    bottom:0;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    max-width:430px;
-
-    width:100%;
-
-    background:white;
-
-    display:flex;
-
-    padding:12px 0;
-
-    box-shadow:0 -5px 15px rgba(0,0,0,.06);
-
-    z-index:9999;
-
-}
-
-
-
-nav button{
-
-    flex:1;
-
-    border:none;
-
-    background:none;
-
-    color:#888;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:5px;
-
-}
-
-
-
-nav button i{
-
-    font-size:22px;
-
-}
-
-
-
-nav button span{
-
-    font-size:12px;
-
-}
-
-
-
-nav .active{
-
-    color:#0B9E62;
-
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Découvrir</title>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="client.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Inter',Arial,sans-serif;
+        }
+
+        body{
+            background:#F4F6F8;
+            color:#222;
+            overflow-x:hidden;
+            padding-bottom:120px;
+        }
+
+        .app{
+            width:100%;
+            max-width:430px;
+            min-height:100vh;
+            margin:auto;
+            background:#F4F6F8;
+        }
+
+        /* HEADER */
+        header{
+            background:linear-gradient(180deg,#12B66A,#0B9E62);
+            color:white;
+            padding:35px 22px 45px;
+            text-align:center;
+            border-bottom-left-radius:35px;
+            border-bottom-right-radius:35px;
+        }
+
+        header h2{
+            font-size:30px;
+            font-weight:700;
+        }
+
+        header p{
+            margin-top:8px;
+            opacity:.9;
+        }
+
+        /* BANNER */
+        .banner{
+            margin:20px 15px;
+            height:210px;
+            border-radius:22px;
+            overflow:hidden;
+            position:relative;
+            background:#ddd;
+            box-shadow:0 8px 18px rgba(0,0,0,.08);
+        }
+
+        .banner img{
+            position:absolute;
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            opacity:0;
+            transition:.8s;
+        }
+
+        .banner img.active{
+            opacity:1;
+        }
+
+        /* MAIN */
+        main{
+            padding:0 15px 120px;
+        }
+
+        .title{
+            font-size:22px;
+            margin:25px 0 18px;
+            font-weight:600;
+        }
+
+        /* CARDS */
+        .card{
+            background:white;
+            border-radius:24px;
+            padding:20px;
+            display:flex;
+            align-items:center;
+            gap:15px;
+            margin-bottom:15px;
+            border:1px solid #E8ECEF;
+            box-shadow:0 8px 18px rgba(0,0,0,.05);
+        }
+
+        .card i{
+            width:50px;
+            height:50px;
+            border-radius:15px;
+            background:#EAF8F1;
+            color:#0B9E62;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-size:24px;
+        }
+
+        .card h3{
+            font-size:18px;
+        }
+
+        .card p{
+            margin-top:5px;
+            color:#777;
+            font-size:14px;
+        }
+
+        /* OFFRE */
+        .offer{
+            background:linear-gradient(180deg,#12B66A,#0B9E62);
+            color:white;
+            border-radius:24px;
+            padding:22px;
+            box-shadow:0 8px 18px rgba(0,0,0,.10);
+        }
+
+        .offer p{
+            margin-top:10px;
+            line-height:22px;
+        }
+
+        .offer button{
+            margin-top:18px;
+            padding:12px 25px;
+            border:none;
+            border-radius:25px;
+            background:white;
+            color:#0B9E62;
+            font-weight:bold;
+            cursor: pointer;
+        }
+
+        /* ACTUALITES */
+        .news{
+            background:white;
+            border-radius:24px;
+            padding:18px;
+            display:flex;
+            align-items:center;
+            gap:15px;
+            margin-bottom:15px;
+        }
+
+        .news i{
+            width:45px;
+            height:45px;
+            border-radius:14px;
+            background:#EAF8F1;
+            color:#0B9E62;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:22px;
+        }
+
+        /* =======================================
+           NAVIGATION BAS 
+        ======================================= */
+        nav{
+            position:fixed;
+            bottom:0;
+            left:50%;
+            transform:translateX(-50%);
+            max-width:430px;
+            width:100%;
+            background:white;
+            display:flex;
+            padding:12px 0;
+            box-shadow:0 -5px 15px rgba(0,0,0,.06);
+            z-index:9999;
+        }
+
+        nav button{
+            flex:1;
+            border:none;
+            background:none;
+            color:#888;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:center;
+            gap:5px;
+            cursor:pointer;
+        }
+
+        nav button i{
+            font-size:22px;
+        }
+
+        nav button span{
+            font-size:12px;
+        }
+
+        nav button.active{
+            color:#0B9E62;
+        }
+
+        nav button:active{
+            transform:scale(.95);
+        }
+    </style>
 </head>
 
-
 <body>
-
-
-<div class="app">
-
-
-<header>
-
-<h2>Découvrir</h2>
-
-<p>Découvrez tous nos services</p>
-
-</header>
-
-
-
-<div class="banner">
-
-<img src="Ima1.png" class="active">
-
-<img src="Ima.png">
-
-<img src="Ima2.png">
-
-</div>
-
-
-
-<main>
-
-
-<h2 class="title">
-Services populaires
-</h2>
-
-
-
-<div class="card">
-
-<i class="fa-solid fa-money-bill-transfer"></i>
-
-<div>
-
-<h3>Transfert d'argent</h3>
-
-<p>Envoyez et recevez de l'argent rapidement partout.</p>
-
-</div>
-
-</div>
-
-
-
-<div class="card">
-
-<i class="fa-solid fa-credit-card"></i>
-
-<div>
-
-<h3>Carte bancaire</h3>
-
-<p>Commandez et gérez vos cartes facilement.</p>
-
-</div>
-
-</div>
-
-
-
-<div class="card">
-
-<i class="fa-solid fa-piggy-bank"></i>
-
-<div>
-
-<h3>Épargne</h3>
-
-<p>Préparez vos projets grâce à nos solutions d'épargne.</p>
-
-</div>
-
-</div>
-
-
-
-<h2 class="title">
-Offre du moment
-</h2>
-
-
-<div class="offer">
-
-<h3>🎁 Offre Exclusive BNP Paribas</h3>
-
-<p>
-Profitez d'avantages exclusifs sur vos paiements,
-vos virements et votre épargne directement depuis votre espace client.
-</p>
-
-
-<button>
-Découvrir
-</button>
-
-
-</div>
-
-
-
-<h2 class="title">
-Actualités
-</h2>
-
-
-
-<div class="news">
-
-<i class="fa-solid fa-bell"></i>
-
-<div>
-
-<h3>Nouvelles fonctionnalités</h3>
-
-<p>Découvrez les dernières améliorations de votre application.</p>
-
-</div>
-
-</div>
-
-
-
-<div class="news">
-
-<i class="fa-solid fa-shield-halved"></i>
-
-<div>
-
-<h3>Sécurité renforcée</h3>
-
-<p>Votre compte bénéficie désormais d'une protection encore plus efficace.</p>
-
-</div>
-
-</div>
-
-
-
-</main>
-
-
-
-
-
-<nav>
-
-
-<button onclick="location.href='client.html'">
-
-<i class="fa-solid fa-house"></i>
-
-<span>Accueil</span>
-
-</button>
-
-
-
-<button onclick="location.href='paiement.html'">
-
-<i class="fa-solid fa-credit-card"></i>
-
-<span>Paiements</span>
-
-</button>
-
-
-
-<button class="active">
-
-<i class="fa-solid fa-compass"></i>
-
-<span>Découvrir</span>
-
-</button>
-
-
-
-<button onclick="location.href='contact.html'">
-
-<i class="fa-solid fa-comments"></i>
-
-<span>Contact</span>
-
-</button>
-
-
-
-</nav>
-
-
-
-</div>
-
-
-
-
-<script>
-
-const images=document.querySelectorAll(".banner img");
-
-let index=0;
-
-
-setInterval(()=>{
-
-images[index].classList.remove("active");
-
-index=(index+1)%images.length;
-
-images[index].classList.add("active");
-
-
-},4000);
-
-
-</script>
-
-
-
+    <div class="app">
+        <header>
+            <h2>Découvrir</h2>
+            <p>Découvrez tous nos services</p>
+        </header>
+
+        <div class="banner">
+            <img src="Ima1.png" class="active" alt="Bannière 1">
+            <img src="Ima.png" alt="Bannière 2">
+            <img src="Ima2.png" alt="Bannière 3">
+        </div>
+
+        <main>
+            <h2 class="title">Services populaires</h2>
+
+            <div class="card">
+                <i class="fa-solid fa-money-bill-transfer"></i>
+                <div>
+                    <h3>Transfert d'argent</h3>
+                    <p>Envoyez et recevez de l'argent rapidement partout.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-credit-card"></i>
+                <div>
+                    <h3>Carte bancaire</h3>
+                    <p>Commandez et gérez vos cartes facilement.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-piggy-bank"></i>
+                <div>
+                    <h3>Épargne</h3>
+                    <p>Préparez vos projets grâce à nos solutions d'épargne.</p>
+                </div>
+            </div>
+
+            <h2 class="title">Offre du moment</h2>
+            <div class="offer">
+                <h3>🎁 Offre Exclusive BNP Paribas</h3>
+                <p>Profitez d'avantages exclusifs sur vos paiements, vos virements et votre épargne directement depuis votre espace client.</p>
+                <button>Découvrir</button>
+            </div>
+
+            <h2 class="title">Actualités</h2>
+
+            <div class="news">
+                <i class="fa-solid fa-bell"></i>
+                <div>
+                    <h3>Nouvelles fonctionnalités</h3>
+                    <p>Découvrez les dernières améliorations de votre application.</p>
+                </div>
+            </div>
+
+            <div class="news">
+                <i class="fa-solid fa-shield-halved"></i>
+                <div>
+                    <h3>Sécurité renforcée</h3>
+                    <p>Votre compte bénéficie désormais d'une protection encore plus efficace.</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Navigation avec buttons comme tu l'as demandé -->
+        <nav>
+            <button onclick="location.href='client.html'">
+                <i class="fa-solid fa-house"></i>
+                <span>Accueil</span>
+            </button>
+
+            <button onclick="location.href='paiement.html'">
+                <i class="fa-solid fa-credit-card"></i>
+                <span>Paiements</span>
+            </button>
+
+            <button class="active">
+                <i class="fa-solid fa-compass"></i>
+                <span>Découvrir</span>
+            </button>
+
+            <button onclick="location.href='contact.html'">
+                <i class="fa-solid fa-comments"></i>
+                <span>Contact</span>
+            </button>
+        </nav>
+    </div>
+
+    <script>
+        const images = document.querySelectorAll(".banner img");
+        let index = 0;
+
+        setInterval(() => {
+            images[index].classList.remove("active");
+            index = (index + 1) % images.length;
+            images[index].classList.add("active");
+        }, 4000);
+    </script>
 </body>
 </html>
