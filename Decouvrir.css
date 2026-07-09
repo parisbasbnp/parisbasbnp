@@ -156,7 +156,7 @@ main{
 .slides img{
 
     width:50%;
-    height:60px;
+    height:100px;
     object-fit:cover;
     flex-shrink:0;
 
