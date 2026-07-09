@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Historique</title>
+
+<link rel="stylesheet" href="client.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+.header-history{
+
+    background:linear-gradient(180deg,#12B66A,#0B9E62);
+    color:white;
+    padding:35px 22px;
+    border-bottom-left-radius:35px;
+    border-bottom-right-radius:35px;
+
+}
+
+.header-history h1{
+
+    font-size:34px;
+
+}
+
+.header-history p{
+
+    margin-top:8px;
+    opacity:.9;
+
+}
+
+.search-box{
+
+    margin-top:25px;
+
+}
+
+.search-box input{
+
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:15px;
+    font-size:16px;
+
+}
+
+.history{
+
+    padding:20px 20px 120px;
+
+}
+
+.year{
+
+    margin-top:25px;
+    margin-bottom:15px;
+    font-size:22px;
+    color:#0B9E62;
+
+}
+
+.operation{
+
+    background:white;
+    border-radius:18px;
+    padding:15px;
+    margin-bottom:12px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 5px 12px rgba(0,0,0,.05);
+
+}
+
+.left{
+
+    display:flex;
+    gap:15px;
+    align-items:center;
+
+}
+
+.left img{
+
+    width:50px;
+    height:50px;
+    border-radius:12px;
+    object-fit:cover;
+
+}
+
+.name{
+
+    font-weight:bold;
+
+}
+
+.date{
+
+    color:#888;
+    font-size:13px;
+    margin-top:5px;
+
+}
+
+.credit{
+
+    color:#12B66A;
+    font-weight:bold;
+
+}
+
+.debit{
+
+    color:#E53935;
+    font-weight:bold;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="app">
+
+<div class="header-history">
+
+<h1>Historique</h1>
+
+<p>Toutes vos opérations bancaires</p>
+
+<div class="search-box">
+
+<input type="text" placeholder="Rechercher une opération...">
+
+</div>
+
+</div>
+
+<div class="history">
+
+<h2 class="year">2022</h2>
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Historique</title>
+
+<link rel="stylesheet" href="client.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+.header-history{
+
+    background:linear-gradient(180deg,#12B66A,#0B9E62);
+    color:white;
+    padding:35px 22px;
+    border-bottom-left-radius:35px;
+    border-bottom-right-radius:35px;
+
+}
+
+.header-history h1{
+
+    font-size:34px;
+
+}
+
+.header-history p{
+
+    margin-top:8px;
+    opacity:.9;
+
+}
+
+.search-box{
+
+    margin-top:25px;
+
+}
+
+.search-box input{
+
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:15px;
+    font-size:16px;
+    outline:none;
+
+}
+
+.history{
+
+    padding:20px 20px 120px;
+
+}
+
+.year{
+
+    margin-top:25px;
+    margin-bottom:15px;
+    font-size:22px;
+    color:#0B9E62;
+
+}
+
+.operation{
+
+    background:white;
+    border-radius:18px;
+    padding:15px;
+    margin-bottom:12px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 5px 12px rgba(0,0,0,.05);
+
+}
+
+.left{
+
+    display:flex;
+    gap:15px;
+    align-items:center;
+
+}
+
+.left img{
+
+    width:50px;
+    height:50px;
+    border-radius:12px;
+    object-fit:cover;
+
+}
+
+.name{
+
+    font-weight:bold;
+
+}
+
+.date{
+
+    color:#888;
+    font-size:13px;
+    margin-top:5px;
+
+}
+
+.credit{
+
+    color:#12B66A;
+    font-weight:bold;
+
+}
+
+.debit{
+
+    color:#E53935;
+    font-weight:bold;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="app">
+
+<div class="header-history">
+
+<h1>Historique</h1>
+
+<p>Toutes vos opérations bancaires</p>
+
+<div class="search-box">
+
+<input type="text" placeholder="Rechercher une opération...">
+
+</div>
+
+</div>
+
+<div class="history">
+
+<h2 class="year">2022</h2>
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/salaire.png" alt="Salaire">
+
+        <div>
+
+            <div class="name">Salaire</div>
+
+            <div class="date">30 Décembre 2022 • 09:00</div>
+
+        </div>
+
+    </div>
+
+    <div class="credit">+2 450,00 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/amazon.png" alt="Amazon">
+
+        <div>
+
+            <div class="name">Amazon</div>
+
+            <div class="date">28 Décembre 2022 • 18:20</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-39,99 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/carrefour.png" alt="Carrefour">
+
+        <div>
+
+            <div class="name">Carrefour</div>
+
+            <div class="date">24 Décembre 2022 • 14:30</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-126,70 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/total.png" alt="TotalEnergies">
+
+        <div>
+
+            <div class="name">TotalEnergies</div>
+
+            <div class="date">21 Décembre 2022 • 10:45</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-74,20 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/netflix.png" alt="Netflix">
+
+        <div>
+
+            <div class="name">Netflix</div>
+
+            <div class="date">18 Décembre 2022 • 08:10</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-15,99 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/orange.png" alt="Orange">
+
+        <div>
+
+            <div class="name">Orange</div>
+
+            <div class="date">15 Décembre 2022 • 11:25</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-29,99 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/mcdonalds.png" alt="McDonald's">
+
+        <div>
+
+            <div class="name">McDonald's</div>
+
+            <div class="date">11 Décembre 2022 • 20:40</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-18,90 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/epargne.png" alt="Épargne">
+
+        <div>
+
+            <div class="name">Virement vers épargne</div>
+
+            <div class="date">05 Décembre 2022 • 16:00</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-500,00 €</div>
+
+</div>
+
+<h2 class="year">2021</h2>
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/salaire.png" alt="Salaire">
+
+        <div>
+
+            <div class="name">Salaire</div>
+
+            <div class="date">30 Décembre 2021 • 09:00</div>
+
+        </div>
+
+    </div>
+
+    <div class="credit">+2 350,00 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/carrefour.png" alt="Carrefour">
+
+        <div>
+
+            <div class="name">Carrefour</div>
+
+            <div class="date">27 Décembre 2021 • 16:40</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-98,70 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/amazon.png" alt="Amazon">
+
+        <div>
+
+            <div class="name">Amazon</div>
+
+            <div class="date">20 Décembre 2021 • 18:15</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-54,99 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/total.png" alt="TotalEnergies">
+
+        <div>
+
+            <div class="name">TotalEnergies</div>
+
+            <div class="date">15 Décembre 2021 • 11:20</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-69,90 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/netflix.png" alt="Netflix">
+
+        <div>
+
+            <div class="name">Netflix</div>
+
+            <div class="date">12 Décembre 2021 • 08:30</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-15,99 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/edf.png" alt="EDF">
+
+        <div>
+
+            <div class="name">Facture EDF</div>
+
+            <div class="date">08 Décembre 2021 • 10:00</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-93,20 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/epargne.png" alt="Épargne">
+
+        <div>
+
+            <div class="name">Virement vers épargne</div>
+
+            <div class="date">02 Décembre 2021 • 14:50</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-700,00 €</div>
+
+</div>
+
+<h2 class="year">2020</h2>
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/salaire.png" alt="Salaire">
+
+        <div>
+
+            <div class="name">Salaire</div>
+
+            <div class="date">30 Décembre 2020 • 09:00</div>
+
+        </div>
+
+    </div>
+
+    <div class="credit">+2 250,00 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/carrefour.png" alt="Carrefour">
+
+        <div>
+
+            <div class="name">Carrefour</div>
+
+            <div class="date">23 Décembre 2020 • 17:15</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-113,40 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/amazon.png" alt="Amazon">
+
+        <div>
+
+            <div class="name">Amazon</div>
+
+            <div class="date">19 Décembre 2020 • 18:40</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-47,99 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/total.png" alt="TotalEnergies">
+
+        <div>
+
+            <div class="name">TotalEnergies</div>
+
+            <div class="date">14 Décembre 2020 • 11:20</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-65,80 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/netflix.png" alt="Netflix">
+
+        <div>
+
+            <div class="name">Netflix</div>
+
+            <div class="date">10 Décembre 2020 • 08:30</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-15,99 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/orange.png" alt="Orange">
+
+        <div>
+
+            <div class="name">Orange</div>
+
+            <div class="date">08 Décembre 2020 • 09:10</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-29,99 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/edf.png" alt="EDF">
+
+        <div>
+
+            <div class="name">Facture EDF</div>
+
+            <div class="date">05 Décembre 2020 • 10:45</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-88,60 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/epargne.png" alt="Épargne">
+
+        <div>
+
+            <div class="name">Virement vers épargne</div>
+
+            <div class="date">02 Décembre 2020 • 16:00</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-600,00 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/mcdonalds.png" alt="McDonald's">
+
+        <div>
+
+            <div class="name">McDonald's</div>
+
+            <div class="date">01 Décembre 2020 • 20:15</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-17,50 €</div>
+
+</div>
+
+<h2 class="year">2019</h2>
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/salaire.png" alt="Salaire">
+
+        <div>
+
+            <div class="name">Salaire</div>
+
+            <div class="date">30 Décembre 2019 • 09:00</div>
+
+        </div>
+
+    </div>
+
+    <div class="credit">+2 150,00 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/carrefour.png" alt="Carrefour">
+
+        <div>
+
+            <div class="name">Carrefour</div>
+
+            <div class="date">27 Décembre 2019 • 17:20</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-96,40 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/amazon.png" alt="Amazon">
+
+        <div>
+
+            <div class="name">Amazon</div>
+
+            <div class="date">22 Décembre 2019 • 18:10</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-58,99 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/total.png" alt="TotalEnergies">
+
+        <div>
+
+            <div class="name">TotalEnergies</div>
+
+            <div class="date">18 Décembre 2019 • 11:30</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-71,20 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/netflix.png" alt="Netflix">
+
+        <div>
+
+            <div class="name">Netflix</div>
+
+            <div class="date">15 Décembre 2019 • 08:00</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-15,99 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/orange.png" alt="Orange">
+
+        <div>
+
+            <div class="name">Orange</div>
+
+            <div class="date">11 Décembre 2019 • 09:40</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-29,99 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/epargne.png" alt="Épargne">
+
+        <div>
+
+            <div class="name">Virement vers épargne</div>
+
+            <div class="date">06 Décembre 2019 • 15:15</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-500,00 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/edf.png" alt="EDF">
+
+        <div>
+
+            <div class="name">Facture EDF</div>
+
+            <div class="date">03 Décembre 2019 • 10:20</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-81,60 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/mcdonalds.png" alt="McDonald's">
+
+        <div>
+
+            <div class="name">McDonald's</div>
+
+            <div class="date">01 Décembre 2019 • 19:50</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-19,80 €</div>
+
+</div>
+
+<h2 class="year">2018</h2>
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/salaire.png" alt="Salaire">
+
+        <div>
+
+            <div class="name">Salaire</div>
+
+            <div class="date">31 Décembre 2018 • 09:00</div>
+
+        </div>
+
+    </div>
+
+    <div class="credit">+2 050,00 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/carrefour.png" alt="Carrefour">
+
+        <div>
+
+            <div class="name">Carrefour</div>
+
+            <div class="date">28 Décembre 2018 • 16:45</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-89,30 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/amazon.png" alt="Amazon">
+
+        <div>
+
+            <div class="name">Amazon</div>
+
+            <div class="date">22 Décembre 2018 • 18:20</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-61,50 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/total.png" alt="TotalEnergies">
+
+        <div>
+
+            <div class="name">TotalEnergies</div>
+
+            <div class="date">18 Décembre 2018 • 10:30</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-68,40 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/netflix.png" alt="Netflix">
+
+        <div>
+
+            <div class="name">Netflix</div>
+
+            <div class="date">15 Décembre 2018 • 08:00</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-13,99 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/orange.png" alt="Orange">
+
+        <div>
+
+            <div class="name">Orange</div>
+
+            <div class="date">11 Décembre 2018 • 09:40</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-29,99 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/epargne.png" alt="Épargne">
+
+        <div>
+
+            <div class="name">Virement vers épargne</div>
+
+            <div class="date">06 Décembre 2018 • 15:15</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-450,00 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/edf.png" alt="EDF">
+
+        <div>
+
+            <div class="name">Facture EDF</div>
+
+            <div class="date">03 Décembre 2018 • 10:20</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-79,90 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/mcdonalds.png" alt="McDonald's">
+
+        <div>
+
+            <div class="name">McDonald's</div>
+
+            <div class="date">01 Décembre 2018 • 19:50</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-16,80 €</div>
+
+</div>
+
+<h2 class="year">2017</h2>
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/salaire.png" alt="Salaire">
+
+        <div>
+
+            <div class="name">Salaire</div>
+
+            <div class="date">29 Décembre 2017 • 09:00</div>
+
+        </div>
+
+    </div>
+
+    <div class="credit">+1 950,00 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/carrefour.png" alt="Carrefour">
+
+        <div>
+
+            <div class="name">Carrefour</div>
+
+            <div class="date">26 Décembre 2017 • 17:10</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-92,50 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/amazon.png" alt="Amazon">
+
+        <div>
+
+            <div class="name">Amazon</div>
+
+            <div class="date">20 Décembre 2017 • 18:15</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-53,99 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/total.png" alt="TotalEnergies">
+
+        <div>
+
+            <div class="name">TotalEnergies</div>
+
+            <div class="date">16 Décembre 2017 • 11:20</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-64,20 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/netflix.png" alt="Netflix">
+
+        <div>
+
+            <div class="name">Netflix</div>
+
+            <div class="date">12 Décembre 2017 • 08:00</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-11,99 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/orange.png" alt="Orange">
+
+        <div>
+
+            <div class="name">Orange</div>
+
+            <div class="date">09 Décembre 2017 • 09:30</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-29,99 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/epargne.png" alt="Épargne">
+
+        <div>
+
+            <div class="name">Virement vers épargne</div>
+
+            <div class="date">05 Décembre 2017 • 15:40</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-400,00 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/edf.png" alt="EDF">
+
+        <div>
+
+            <div class="name">Facture EDF</div>
+
+            <div class="date">03 Décembre 2017 • 10:15</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-74,80 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/mcdonalds.png" alt="McDonald's">
+
+        <div>
+
+            <div class="name">McDonald's</div>
+
+            <div class="date">01 Décembre 2017 • 19:30</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-14,90 €</div>
+
+</div>
+
+<h2 class="year">2016</h2>
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/salaire.png" alt="Salaire">
+
+        <div>
+
+            <div class="name">Salaire</div>
+
+            <div class="date">30 Décembre 2016 • 09:00</div>
+
+        </div>
+
+    </div>
+
+    <div class="credit">+1 800,00 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/carrefour.png" alt="Carrefour">
+
+        <div>
+
+            <div class="name">Carrefour</div>
+
+            <div class="date">26 Décembre 2016 • 16:45</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-85,20 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/amazon.png" alt="Amazon">
+
+        <div>
+
+            <div class="name">Amazon</div>
+
+            <div class="date">21 Décembre 2016 • 18:30</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-42,90 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/total.png" alt="TotalEnergies">
+
+        <div>
+
+            <div class="name">TotalEnergies</div>
+
+            <div class="date">17 Décembre 2016 • 10:50</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-61,40 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/netflix.png" alt="Netflix">
+
+        <div>
+
+            <div class="name">Netflix</div>
+
+            <div class="date">12 Décembre 2016 • 08:00</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-9,99 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/orange.png" alt="Orange">
+
+        <div>
+
+            <div class="name">Orange</div>
+
+            <div class="date">08 Décembre 2016 • 09:20</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-29,99 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/epargne.png" alt="Épargne">
+
+        <div>
+
+            <div class="name">Virement vers épargne</div>
+
+            <div class="date">05 Décembre 2016 • 14:30</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-300,00 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/edf.png" alt="EDF">
+
+        <div>
+
+            <div class="name">Facture EDF</div>
+
+            <div class="date">03 Décembre 2016 • 10:10</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-72,40 €</div>
+
+</div>
+
+<div class="operation">
+
+    <div class="left">
+
+        <img src="images/mcdonalds.png" alt="McDonald's">
+
+        <div>
+
+            <div class="name">McDonald's</div>
+
+            <div class="date">01 Décembre 2016 • 19:15</div>
+
+        </div>
+
+    </div>
+
+    <div class="debit">-13,90 €</div>
+
+</div>
+
+</div>
+
+<nav>
+
+<button onclick="window.location.href='client.html'">
+
+<i class="fa-solid fa-house"></i>
+
+<span>Accueil</span>
+
+</button>
+
+<button onclick="window.location.href='paiement.html'">
+
+<i class="fa-solid fa-credit-card"></i>
+
+<span>Paiements</span>
+
+</button>
+
+<button class="active">
+
+<i class="fa-solid fa-clock-rotate-left"></i>
+
+<span>Historique</span>
+
+</button>
+
+<button onclick="window.location.href='contact.html'">
+
+<i class="fa-solid fa-comments"></i>
+
+<span>Contact</span>
+
+</button>
+
+</nav>
+
+</div>
+
+<script src="client.js"></script>
+
+</body>
+</html>
