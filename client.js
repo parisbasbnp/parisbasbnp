@@ -241,3 +241,6 @@ function ouvrirDecouvrir() {
 function ouvrirContact() {
     window.location.href = "contact.html";
 }
+function ouvrirHistorique() {
+    window.location.href = "historique.html";
+}
