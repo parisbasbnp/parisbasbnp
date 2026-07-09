@@ -18,7 +18,7 @@ function sliderAuto(){
 
     }
 
-    slides.style.transform = "translateX(-" + (index * 100) + "%)";
+    slides.style.transform = "translateX(-" + (index * 33.333) + "%)";
 
 }
 
