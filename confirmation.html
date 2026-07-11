@@ -431,6 +431,32 @@ localStorage.setItem(
 
 );
     
+let historiques = JSON.parse(
+    localStorage.getItem("historiques")
+) || [];
+
+historiques.unshift({
+
+    type: "Virement envoyé",
+
+    beneficiaire: beneficiaire,
+
+    montant: montant + " €",
+
+    iban: iban,
+
+    motif: motif,
+
+    date: new Date().toLocaleDateString("fr-FR"),
+
+    heure: new Date().toLocaleTimeString("fr-FR")
+
+});
+
+localStorage.setItem(
+    "historiques",
+    JSON.stringify(historiques)
+);    
 
 // disparition après 4 secondes
 
