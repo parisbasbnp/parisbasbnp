@@ -263,25 +263,23 @@ message.innerHTML="";
 
 }
     
-
+<script>
 
 function continuerVirement(){
 
-localStorage.setItem("compte",
-document.getElementById("compte").value);
-
-localStorage.setItem("beneficiaire",
-document.getElementById("beneficiaire").value);
-
-localStorage.setItem("montant",
-document.getElementById("montant").value);
+let compte = document.getElementById("compte").value;
+let beneficiaire = document.getElementById("beneficiaire").value;
+let montant = document.getElementById("montant").value;
 
 
-window.location.href="confirmation.html";
+localStorage.setItem("compte", compte);
+localStorage.setItem("beneficiaire", beneficiaire);
+localStorage.setItem("montant", montant);
+
+
+window.location.href = "confirmation-virement.html";
 
 }
-
-
 
 </script>
 
