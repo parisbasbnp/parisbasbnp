@@ -40,30 +40,6 @@
 
 <script>
 setTimeout(function () {
-
-    try {
-
-        let notifications = JSON.parse(
-            localStorage.getItem("notifications")
-        ) || [];
-
-        notifications.unshift({
-            titre: "Connexion réussie",
-            message: "Vous vous êtes connecté à votre espace bancaire.",
-            date: new Date().toLocaleDateString("fr-FR"),
-            heure: new Date().toLocaleTimeString("fr-FR")
-        });
-
-        localStorage.setItem(
-            "notifications",
-            JSON.stringify(notifications)
-        );
-
-    } catch (e) {
-        console.log(e);
-    }
-
     window.location.href = "client.html";
-
 }, 3000);
 </script>
