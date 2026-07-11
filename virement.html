@@ -61,14 +61,12 @@ label{
     display:block;
     margin-top:18px;
     margin-bottom:8px;
-    font-size:14px;
     color:#555;
 
 }
 
 
-select,
-input{
+input,select{
 
     width:100%;
     padding:14px;
@@ -100,7 +98,7 @@ input{
     margin-top:15px;
     padding:12px;
     border-radius:10px;
-    background:#ffe5e5;
+    background:#ffe6e6;
     color:red;
     font-weight:bold;
 
@@ -152,8 +150,10 @@ Compte joint ••••7890
 Bénéficiaire
 </label>
 
-
-<input type="text" placeholder="Nom du bénéficiaire" id="beneficiaire">
+<input 
+id="beneficiaire"
+type="text"
+placeholder="Nom du bénéficiaire">
 
 
 
@@ -161,8 +161,10 @@ Bénéficiaire
 IBAN
 </label>
 
-
-<input type="text" placeholder="FR76 XXXX XXXX XXXX">
+<input 
+id="iban"
+type="text"
+placeholder="FR76 XXXX XXXX XXXX">
 
 
 
@@ -170,11 +172,10 @@ IBAN
 Montant
 </label>
 
-
 <input 
-type="number" 
-placeholder="0,00 €"
 id="montant"
+type="number"
+placeholder="0,00 €"
 oninput="verifierMontant()">
 
 
@@ -183,17 +184,20 @@ oninput="verifierMontant()">
 Motif
 </label>
 
-
-<input type="text" placeholder="Ex : Loyer">
+<input 
+id="motif"
+type="text"
+placeholder="Ex : Loyer">
 
 
 
 <div class="message" id="message"></div>
 
 
-
 <button class="btn" onclick="continuerVirement()">
+
 Continuer
+
 </button>
 
 
@@ -205,31 +209,50 @@ Continuer
 <script>
 
 
+function afficherMessage(text){
+
+let message=document.getElementById("message");
+
+message.style.display="block";
+message.innerHTML=text;
+
+}
+
+
+
+function cacherMessage(){
+
+let message=document.getElementById("message");
+
+message.style.display="none";
+message.innerHTML="";
+
+}
+
+
+
+
 function verifierCompte(){
 
 let compte=document.getElementById("compte").value;
 
-let message=document.getElementById("message");
-
 
 if(compte==="joint"){
 
-message.style.display="block";
-
-message.innerHTML=
-"Votre compte joint est bloqué, veuillez contacter le service";
+afficherMessage(
+"Votre compte joint est bloqué, veuillez contacter le service"
+);
 
 }
 
 else{
 
-message.style.display="none";
-
-message.innerHTML="";
+cacherMessage();
 
 }
 
 }
+
 
 
 
@@ -237,48 +260,105 @@ function verifierMontant(){
 
 let compte=document.getElementById("compte").value;
 
-let montant=Number(document.getElementById("montant").value);
+let montant=Number(
+document.getElementById("montant").value
+);
 
-let message=document.getElementById("message");
 
+if(compte==="cheque" && montant>25){
 
-
-if(compte==="cheque" && montant > 25){
-
-message.style.display="block";
-
-message.innerHTML=
-"Fonds insuffisants";
+afficherMessage(
+"Fonds insuffisants"
+);
 
 }
-
-else if(compte==="cheque"){
-
-message.style.display="none";
-
-message.innerHTML="";
 
 }
 
 
-}
-    
+
 
 function continuerVirement(){
 
-let compte = document.getElementById("compte").value;
-let beneficiaire = document.getElementById("beneficiaire").value;
-let montant = document.getElementById("montant").value;
+
+let compte=document.getElementById("compte").value;
+
+let beneficiaire=document.getElementById("beneficiaire").value.trim();
+
+let iban=document.getElementById("iban").value.replace(/\s/g,'');
+
+let montant=document.getElementById("montant").value;
+
+let motif=document.getElementById("motif").value;
 
 
-localStorage.setItem("compte", compte);
-localStorage.setItem("beneficiaire", beneficiaire);
-localStorage.setItem("montant", montant);
 
+if(beneficiaire==="" || iban==="" || montant==="" || motif===""){
 
-window.location.href = "confirmation.html";
+afficherMessage(
+"Champ obligatoire"
+);
+
+return;
 
 }
+
+
+
+if(!/^FR[0-9]{25}$/.test(iban)){
+
+afficherMessage(
+"IBAN incorrect"
+);
+
+return;
+
+}
+
+
+
+if(compte==="joint"){
+
+afficherMessage(
+"Votre compte joint est bloqué, veuillez contacter le service"
+);
+
+return;
+
+}
+
+
+
+if(Number(montant)>25){
+
+afficherMessage(
+"Fonds insuffisants"
+);
+
+return;
+
+}
+
+
+
+
+localStorage.setItem("compte",compte);
+
+localStorage.setItem("beneficiaire",beneficiaire);
+
+localStorage.setItem("iban",iban);
+
+localStorage.setItem("montant",montant);
+
+localStorage.setItem("motif",motif);
+
+
+
+window.location.href="confirmation.html";
+
+
+}
+
 
 </script>
 
