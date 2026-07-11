@@ -1571,11 +1571,13 @@ historiques.forEach(h => {
 
         <div class="right">
 
-            <strong>
-            -${h.montant}
+            <strong class="${h.type === 'Virement reçu' ? 'credit' : 'debit'}">
+            ${h.type === 'Virement reçu' ? '+' : '-'}${h.montant}
+
             </strong>
 
-        </div>
+         </div>
+           
 
     </div>
 
