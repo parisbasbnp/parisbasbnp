@@ -39,37 +39,31 @@
 </div>
 
 <script>
-    // Redirection automatique après 3 secondes
-    setTimeout(function () {
-        let notifications =
+setTimeout(function () {
 
-    JSON.parse(localStorage.getItem("notifications")) || [];
+    try {
 
-    notifications.unshift({
+        let notifications = JSON.parse(
+            localStorage.getItem("notifications")
+        ) || [];
 
-        titre: "Connexion réussie",
+        notifications.unshift({
+            titre: "Connexion réussie",
+            message: "Vous vous êtes connecté à votre espace bancaire.",
+            date: new Date().toLocaleDateString("fr-FR"),
+            heure: new Date().toLocaleTimeString("fr-FR")
+        });
 
-        message: "Vous vous êtes connecté à votre espace bancaire.",
+        localStorage.setItem(
+            "notifications",
+            JSON.stringify(notifications)
+        );
 
-        date: new Date().toLocaleDateString("fr-FR"),
-
-        heure: new Date().toLocaleTimeString("fr-FR")
-
-    });
-
-    localStorage.setItem(
-
-        "notifications",
-
-        JSON.stringify(notifications)
-
-    );
+    } catch (e) {
+        console.log(e);
+    }
 
     window.location.href = "client.html";
 
-}, 3000);    
-        
+}, 3000);
 </script>
-
-</body>
-</html>
