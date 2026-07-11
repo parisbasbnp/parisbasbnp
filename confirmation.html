@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Confirmation virement</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f5f6f7;
+}
+
+.header{
+background:#008542;
+color:white;
+padding:20px;
+font-size:20px;
+font-weight:bold;
+}
+
+.card{
+background:white;
+margin:20px;
+padding:20px;
+border-radius:18px;
+box-shadow:0 3px 10px #ddd;
+}
+
+.detail{
+margin-bottom:15px;
+}
+
+.label{
+color:#777;
+font-size:14px;
+}
+
+.value{
+font-weight:bold;
+font-size:16px;
+}
+
+
+button{
+
+width:100%;
+padding:15px;
+border:0;
+border-radius:12px;
+background:#008542;
+color:white;
+font-size:16px;
+font-weight:bold;
+
+}
+
+
+/* notification */
+
+.notification{
+
+position:fixed;
+top:-120px;
+left:20px;
+right:20px;
+background:white;
+border-radius:15px;
+padding:15px;
+box-shadow:0 5px 20px #aaa;
+transition:0.5s;
+}
+
+.notification.show{
+top:20px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="header">
+Confirmation du virement
+</div>
+
+
+
+<div class="card">
+
+<h2>Détails du virement</h2>
+
+
+<div class="detail">
+<div class="label">
+Bénéficiaire
+</div>
+
+<div class="value" id="beneficiaire"></div>
+</div>
+
+
+<div class="detail">
+<div class="label">
+Montant
+</div>
+
+<div class="value">
+<span id="montant"></span> €
+</div>
+</div>
+
+
+<div class="detail">
+<div class="label">
+Compte débité
+</div>
+
+<div class="value" id="compte"></div>
+</div>
+
+
+
+<div class="detail">
+<div class="label">
+IBAN
+</div>
+
+<div class="value">
+FR76 XXXX XXXX XXXX
+</div>
+</div>
+
+
+
+<button onclick="confirmer()">
+Confirmer le virement
+</button>
+
+
+</div>
+
+
+
+<div class="notification" id="notification">
+
+<b>Virement effectué</b>
+
+<br>
+
+Votre virement vers <span id="notifNom"></span>
+a été effectué avec succès.
+
+<br>
+
+Montant : <span id="notifMontant"></span> €
+
+</div>
+
+
+
+<script>
+
+
+let nom =
+localStorage.getItem("beneficiaire");
+
+let montant =
+localStorage.getItem("montant");
+
+let compte =
+localStorage.getItem("compte");
+
+
+
+document.getElementById("beneficiaire").innerHTML=nom;
+
+document.getElementById("montant").innerHTML=montant;
+
+document.getElementById("compte").innerHTML=
+compte==="cheque"
+?"Compte de chèques ••••1749"
+:"Compte joint ••••7890";
+
+
+
+function confirmer(){
+
+
+setTimeout(function(){
+
+
+document.getElementById("notifNom").innerHTML=nom;
+
+document.getElementById("notifMontant").innerHTML=montant;
+
+
+document
+.getElementById("notification")
+.classList.add("show");
+
+
+},2000);
+
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
