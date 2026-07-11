@@ -4,11 +4,85 @@
 
 function notification() {
 
-    alert("Vous avez 7 nouvelles notifications.");
+    ouvrirNotifications();
 
 }
 
+function ouvrirNotifications(){
 
+    document.getElementById("notifModal").style.display = "flex";
+
+}
+
+function fermerNotifications(){
+
+    document.getElementById("notifModal").style.display = "none";
+
+}
+function chargerNotifications(){
+
+    let notifications = JSON.parse(localStorage.getItem("notifications")) || [];
+
+    let compteur = document.getElementById("notifCount");
+
+
+    if(compteur){
+
+        compteur.innerHTML = 7 + notifications.length;
+
+    }
+
+}
+function chargerNotifications(){
+
+    let notifications = JSON.parse(localStorage.getItem("notifications")) || [];
+
+    let compteur = document.getElementById("notifCount");
+
+    let zone = document.getElementById("nouvellesNotifications");
+
+
+    if(compteur){
+
+        compteur.innerHTML = 7 + notifications.length;
+
+    }
+
+
+    if(zone){
+
+        zone.innerHTML = "";
+
+
+        notifications.forEach(n => {
+
+            zone.innerHTML += `
+
+            <div class="notification-item">
+
+                <i class="fa-solid fa-money-bill-transfer"></i>
+
+                <div>
+
+                    <h3>${n.titre}</h3>
+
+                    <p>${n.message}</p>
+
+                    <p>${n.montant}</p>
+
+                    <small>${n.date} à ${n.heure}</small>
+
+                </div>
+
+            </div>
+
+            `;
+
+        });
+
+    }
+
+}
 
 // ==============================
 // Déconnexion (popup)
