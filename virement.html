@@ -278,9 +278,9 @@ function continuerVirement(){
 
     }
 
-    if(!/^FR[0-9]{25}$/.test(iban)){
+    if (!/^[A-Z]{2}[0-9]{2}[A-Z0-9]{11,30}$/.test(iban)) {
 
-        afficherMessage("IBAN incorrect");
+        afficherMessage("Format de l’IBAN incorrect");
         return;
 
     }
