@@ -127,6 +127,36 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 }
 
+
+/* Ligne de démonstration Grasso : cliquable, sans photo */
+.operation-grasso {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+.operation-grasso:focus-visible {
+    outline: 3px solid #0B9E62;
+    outline-offset: 3px;
+}
+.profile-ghost {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    border-radius: 50%;
+    background: #e5e5e5;
+    color: #777;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+.demo-label {
+    display: block;
+    margin-top: 4px;
+    color: #777;
+    font-size: 11px;
+}
+
 </style>
 
 </head>
@@ -290,6 +320,23 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     
 <div id="nouvellesOperations"></div>   
     
+
+<a class="operation operation-grasso"
+   href="grasso.html"
+   aria-label="Ouvrir le détail de la simulation Grasso Angelo Vincenzo">
+    <div class="left">
+        <div class="profile-ghost" aria-hidden="true">
+            <i class="fa-solid fa-ghost"></i>
+        </div>
+        <div>
+            <div class="name">Grasso Angelo Vincenzo</div>
+            <div class="date">Opération de démonstration</div>
+            <small class="demo-label">Simulation — non confirmée</small>
+        </div>
+    </div>
+    <div class="debit">500 000,00 €</div>
+</a>
+
 <div class="operation">
 
    <div class="left">
