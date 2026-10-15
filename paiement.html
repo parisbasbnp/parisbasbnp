@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,94 +10,118 @@
 </head>
 <body>
     <div class="app">
+
         <!-- En-tête vert -->
         <header>
             <h2>Paiements</h2>
         </header>
-        
+
         <!-- Contenu -->
         <main>
             <section class="title-row">
                 <h2>Vos paiements</h2>
                 <span>Cartes, virements et opérations</span>
             </section>
-            
+
             <!-- Mes cartes -->
             <section class="title-row">
                 <h2>Mes cartes</h2>
             </section>
-            
+
             <div class="cards">
                 <div class="card" style="width:320px; height:200px; overflow:hidden; border-radius:12px;">
-                 <img src="visa.PNG" alt="Visa Premier" style="width:100%; border-radius:12px;">
-            </div>
-            <div class="card">
+                    <img src="visa.PNG" alt="Visa Premier" style="width:100%; border-radius:12px;">
+                </div>
+
+                <div class="card">
                     <img src="Master.PNG" alt="Mastercard" style="width:100%; border-radius:12px;">
                 </div>
             </div>
-            
+
             <!-- Actions rapides -->
             <section class="actions">
                 <button onclick="window.location.href='virement.html'">
                     <i class="fa-solid fa-money-bill-transfer"></i>
                     <span>Effectuer un virement</span>
                 </button>
+
                 <button>
                     <i class="fa-solid fa-building-columns"></i>
                     <span>Ajouter un bénéficiaire</span>
                 </button>
-                
+
                 <button onclick="window.location.href='mobile.html'">
                     <i class="fa-solid fa-mobile-screen-button"></i>
                     <span>Paiement mobile</span>
                 </button>
+
                 <button onclick="window.location.href='historique.html'">
                     <i class="fa-solid fa-clock-rotate-left"></i>
                     <span>Historique</span>
                 </button>
             </section>
-            
+
             <!-- Derniers paiements -->
             <section class="synthese">
                 <h2>Derniers paiements</h2>
+
+                <!-- Paiement ajouté sans photo -->
                 <div class="synthese-card">
-                    <img src="amazon.jpg" alt="Amazon" style="width:40px; height:40px; border-radius:8px;">
+                    <span>Grasso Angelo Vincenzo - 500 000,00 €</span>
+                </div>
+
+                <br>
+
+                <div class="synthese-card">
+                    <img src="amazon.jpg" alt="Amazon"
+                         style="width:40px; height:40px; border-radius:8px;">
                     <span>Amazon - 39,99 €</span>
                 </div>
+
                 <br>
+
                 <div class="synthese-card">
-                    <img src="sta.jpg" alt="Station Service" style="width:40px; height:40px; border-radius:8px;">
+                    <img src="sta.jpg" alt="Station Service"
+                         style="width:40px; height:40px; border-radius:8px;">
                     <span>Station Service - 75,00 €</span>
                 </div>
+
                 <br>
+
                 <div class="synthese-card">
-                    <img src="rest.jpg" alt="Restaurant" style="width:40px; height:40px; border-radius:8px;">
+                    <img src="rest.jpg" alt="Restaurant"
+                         style="width:40px; height:40px; border-radius:8px;">
                     <span>Restaurant - 42,80 €</span>
                 </div>
             </section>
         </main>
-        
+
         <!-- Navigation -->
         <nav>
             <button onclick="window.location.href='client.html'">
                 <i class="fa-solid fa-house"></i>
                 <span>Accueil</span>
             </button>
+
             <button class="active">
                 <i class="fa-solid fa-credit-card"></i>
                 <span>Paiements</span>
             </button>
+
             <button onclick="window.location.href='decouvrir.html'">
                 <i class="fa-solid fa-compass"></i>
                 <span>Découvrir</span>
             </button>
+
             <button onclick="window.location.href='contact.html'">
                 <i class="fa-solid fa-comments"></i>
                 <span>Contact</span>
             </button>
         </nav>
+
     </div>
-    
+
     <script src="client.js"></script>
 </body>
 </html>
+```
