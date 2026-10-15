@@ -1,136 +1,570 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Détails du transfert — Simulation</title>
+  <title>Détails du transfert</title>
   <link rel="stylesheet" href="client.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <style>
-    :root { --green:#0b9e62; --red:#d9363e; --ink:#17212b; --muted:#6b7280; --line:#e8edf0; --bg:#f4f7f6; }
-    * { box-sizing:border-box; }
-    body { margin:0; background:var(--bg); color:var(--ink); font-family:Arial, sans-serif; }
-    .app { max-width:760px; margin:0 auto; min-height:100vh; background:#fff; padding-bottom:32px; }
-    header { padding:22px 20px; background:linear-gradient(180deg,#12b66a,var(--green)); color:white; }
-    .topline { display:flex; align-items:center; gap:12px; }
-    .back { color:white; text-decoration:none; font-size:18px; padding:8px 10px 8px 0; }
-    header h1 { font-size:22px; margin:0; }
-    .demo { margin:16px 20px 0; padding:10px 12px; border:1px solid #f1d48a; border-radius:10px; background:#fff8e5; color:#805b00; font-size:12px; font-weight:700; letter-spacing:.3px; }
-    main { padding:20px; }
-    .card { border:1px solid var(--line); border-radius:18px; padding:18px; margin-bottom:16px; box-shadow:0 5px 18px rgba(22,34,30,.04); }
-    .eyebrow { color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.7px; margin:0 0 10px; }
-    .amount { font-size:32px; line-height:1.2; font-weight:750; color:var(--red); margin:0 0 14px; }
-    .status { display:inline-flex; align-items:center; gap:8px; padding:8px 11px; border-radius:999px; background:#fff1d6; color:#865800; font-size:13px; font-weight:700; }
-    .profile { display:flex; align-items:center; gap:13px; }
-    .ghost { display:flex; align-items:center; justify-content:center; width:52px; height:52px; flex:0 0 52px; border-radius:50%; background:#edf0f2; color:#737b83; font-size:23px; }
-    .profile h2 { margin:0 0 5px; font-size:17px; }
-    .profile p { margin:0; color:var(--muted); font-size:13px; }
-    .details { margin:0; }
-    .detail-row { display:flex; justify-content:space-between; gap:16px; padding:13px 0; border-bottom:1px solid var(--line); font-size:14px; }
-    .detail-row:last-child { border-bottom:0; padding-bottom:0; }
-    .detail-row dt { color:var(--muted); }
-    .detail-row dd { margin:0; text-align:right; font-weight:600; }
-    .notice { display:flex; gap:12px; align-items:flex-start; background:#f3f8ff; border:1px solid #dce9fb; border-radius:14px; padding:14px; }
-    .notice i { color:#356bb5; margin-top:2px; }
-    .notice h3 { margin:0 0 6px; font-size:15px; }
-    .notice p { margin:0; color:#4b5563; font-size:13px; line-height:1.5; }
-    .steps { list-style:none; margin:0; padding:0; }
-    .steps li { display:flex; gap:12px; padding:11px 0; }
-    .step-icon { width:30px; height:30px; flex:0 0 30px; display:flex; align-items:center; justify-content:center; border-radius:50%; background:#eef7f2; color:var(--green); }
-    .steps strong { display:block; font-size:14px; margin:1px 0 4px; }
-    .steps span { display:block; color:var(--muted); font-size:13px; line-height:1.45; }
-    .actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
-    .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; border:0; border-radius:12px; padding:12px 15px; font-size:14px; font-weight:700; text-decoration:none; cursor:pointer; }
-    .btn-primary { background:var(--green); color:white; }
-    .btn-secondary { background:#eef2f1; color:#27352e; }
-    .footnote { text-align:center; color:#7b8490; font-size:11px; line-height:1.5; padding:4px 22px 22px; }
-    @media (max-width:480px) { main { padding:14px; } .amount { font-size:28px; } .detail-row { font-size:13px; } }
+    :root {
+      --green: #0b9e62;
+      --red: #d9363e;
+      --ink: #17212b;
+      --muted: #6b7280;
+      --line: #e8edf0;
+      --bg: #f4f7f6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Arial, sans-serif;
+    }
+
+    .app {
+      max-width: 760px;
+      margin: 0 auto;
+      min-height: 100vh;
+      background: #fff;
+      padding-bottom: 32px;
+    }
+
+    header {
+      padding: 22px 20px;
+      background: linear-gradient(180deg, #12b66a, var(--green));
+      color: white;
+    }
+
+    .topline {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .back {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 8px 10px 8px 0;
+    }
+
+    header h1 {
+      font-size: 22px;
+      margin: 0;
+    }
+
+    .demo {
+      margin: 16px 20px 0;
+      padding: 10px 12px;
+      border: 1px solid #f1d48a;
+      border-radius: 10px;
+      background: #fff8e5;
+      color: #805b00;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .3px;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      margin-bottom: 16px;
+      box-shadow: 0 5px 18px rgba(22, 34, 30, .04);
+    }
+
+    .eyebrow {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .7px;
+      margin: 0 0 10px;
+    }
+
+    .amount {
+      font-size: 32px;
+      line-height: 1.2;
+      font-weight: 750;
+      color: var(--red);
+      margin: 0 0 14px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: #fff1d6;
+      color: #865800;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .ghost {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      flex: 0 0 52px;
+      border-radius: 50%;
+      background: #edf0f2;
+      color: #737b83;
+      font-size: 23px;
+    }
+
+    .profile h2 {
+      margin: 0 0 5px;
+      font-size: 17px;
+    }
+
+    .profile p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .details {
+      margin: 0;
+    }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+
+    .detail-row:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .detail-row dt {
+      color: var(--muted);
+    }
+
+    .detail-row dd {
+      margin: 0;
+      text-align: right;
+      font-weight: 600;
+      overflow-wrap: anywhere;
+    }
+
+    .notice {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      background: #f3f8ff;
+      border: 1px solid #dce9fb;
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .notice i {
+      color: #356bb5;
+      margin-top: 2px;
+    }
+
+    .notice h3 {
+      margin: 0 0 8px;
+      font-size: 15px;
+    }
+
+    .notice p {
+      margin: 0;
+      color: #4b5563;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .steps {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .steps li {
+      display: flex;
+      gap: 12px;
+      padding: 11px 0;
+    }
+
+    .step-icon {
+      width: 30px;
+      height: 30px;
+      flex: 0 0 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #eef7f2;
+      color: var(--green);
+    }
+
+    .steps strong {
+      display: block;
+      font-size: 14px;
+      margin: 1px 0 4px;
+    }
+
+    .steps span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 15px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: #eef2f1;
+      color: #27352e;
+    }
+
+    .footnote {
+      text-align: center;
+      color: #7b8490;
+      font-size: 11px;
+      line-height: 1.5;
+      padding: 4px 22px 22px;
+    }
+
+    @media (max-width: 480px) {
+      main {
+        padding: 14px;
+      }
+
+      .amount {
+        font-size: 28px;
+      }
+
+      .detail-row {
+        font-size: 13px;
+      }
+    }
   </style>
 </head>
+
 <body>
   <div class="app">
+
     <header>
       <div class="topline">
-        <a class="back" href="historique_avec_grasso_demo.html" aria-label="Retour à l'historique"><i class="fa-solid fa-arrow-left"></i></a>
+        <a class="back"
+           href="historique_avec_grasso_demo.html"
+           aria-label="Retour à l'historique">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
         <h1>Détails du transfert</h1>
       </div>
     </header>
 
-    <div class="demo"><i class="fa-solid fa-flask"></i> SIMULATION — DONNÉES FICTIVES, SANS VALEUR BANCAIRE</div>
+    <div class="demo">
+      <i class="fa-solid fa-flask"></i>
+      SIMULATION — DONNÉES FICTIVES, SANS VALEUR BANCAIRE
+    </div>
 
     <main>
+
+      <!-- Montant et statut -->
       <section class="card">
-        <p class="eyebrow">Montant du transfert simulé</p>
-        <p class="amount">500 000,00 €</p>
-        <span class="status"><i class="fa-solid fa-hourglass-half"></i> Vérification simulée en attente</span>
+        <p class="eyebrow">Montant du transfert</p>
+        <p class="amount" id="detailMontant">500 000,00 €</p>
+
+        <span class="status">
+          <i class="fa-solid fa-hourglass-half"></i>
+          Vérification en attente
+        </span>
       </section>
 
+      <!-- Coordonnées du bénéficiaire -->
       <section class="card">
         <div class="profile">
-          <div class="ghost" aria-hidden="true"><i class="fa-solid fa-ghost"></i></div>
+          <div class="ghost" aria-hidden="true">
+            <i class="fa-solid fa-user"></i>
+          </div>
+
           <div>
-            <h2>Grasso Angelo Vincenzo</h2>
-            <p>Bénéficiaire — exemple fictif</p>
+            <h2 id="detailBeneficiaire">
+              Grasso Angelo Vincenzo
+            </h2>
+            <p>Bénéficiaire — données de démonstration</p>
           </div>
         </div>
-        <dl class="details" style="margin-top:18px">
-          <div class="detail-row"><dt>Référence de démonstration</dt><dd>DEMO-GR-0001</dd></div>
-          <div class="detail-row"><dt>Compte à débiter</dt><dd id="detailCompte">Non renseigné</dd></div>
-          <div class="detail-row"><dt>IBAN / RIB</dt><dd id="detailIban">Non renseigné</dd></div>
-          <div class="detail-row"><dt>Code BIC / SWIFT</dt><dd id="detailBic">Non renseigné</dd></div>
-          <div class="detail-row"><dt>Adresse du bénéficiaire</dt><dd id="detailAdresse">Non renseignée</dd></div>
-          <div class="detail-row"><dt>Motif</dt><dd id="detailMotif">Non renseigné</dd></div>
-          <div class="detail-row"><dt>Date</dt><dd id="detailDate">Non renseignée</dd></div>
-          <div class="detail-row"><dt>Type d'opération</dt><dd>Transfert simulé</dd></div>
-          <div class="detail-row"><dt>Statut</dt><dd style="color:#a66a00">Suspension simulée — vérification en cours</dd></div>
+
+        <dl class="details" style="margin-top: 18px">
+
+          <div class="detail-row">
+            <dt>Référence du transfert</dt>
+            <dd>DEMO-GR-0001</dd>
+          </div>
+
+          <div class="detail-row">
+            <dt>Compte à débiter</dt>
+            <dd id="detailCompte">Non renseigné</dd>
+          </div>
+
+          <div class="detail-row">
+            <dt>IBAN / RIB</dt>
+            <dd id="detailIban">Non renseigné</dd>
+          </div>
+
+          <div class="detail-row">
+            <dt>Code BIC / SWIFT</dt>
+            <dd id="detailBic">Non renseigné</dd>
+          </div>
+
+          <div class="detail-row">
+            <dt>Banque bénéficiaire</dt>
+            <dd id="detailBanque">Non renseignée</dd>
+          </div>
+
+          <div class="detail-row">
+            <dt>Adresse du bénéficiaire</dt>
+            <dd id="detailAdresse">Non renseignée</dd>
+          </div>
+
+          <div class="detail-row">
+            <dt>Motif du transfert</dt>
+            <dd id="detailMotif">Non renseigné</dd>
+          </div>
+
+          <div class="detail-row">
+            <dt>Date de l'opération</dt>
+            <dd id="detailDate">08/10/2025</dd>
+          </div>
+
+          <div class="detail-row">
+            <dt>Type d'opération</dt>
+            <dd>Virement bancaire (démo)</dd>
+          </div>
+
+          <div class="detail-row">
+            <dt>Statut</dt>
+            <dd style="color: #a66a00">
+              En attente de vérification
+            </dd>
+          </div>
+
         </dl>
       </section>
 
+      <!-- Informations relatives au transfert -->
       <section class="card">
         <div class="notice">
           <i class="fa-solid fa-circle-info"></i>
+
           <div>
-            <h3>À propos de la vérification</h3>
-            <p>Dans cette maquette, le transfert est présenté comme étant en attente d'examen. Ce statut est fictif et ne confirme ni le blocage de fonds réels ni une décision d'une banque.</p>
+            <h3>Informations relatives au transfert</h3>
+
+            <p>
+              Le transfert est actuellement en attente de vérification.
+              Des contrôles complémentaires peuvent être nécessaires afin
+              de confirmer la conformité des informations du bénéficiaire
+              et des données relatives à l’opération. Le traitement pourra
+              reprendre une fois les vérifications terminées. Pour connaître
+              la situation exacte d’un transfert réel, veuillez contacter
+              votre établissement bancaire.
+            </p>
           </div>
         </div>
       </section>
 
+      <!-- Étapes de traitement -->
       <section class="card">
-        <p class="eyebrow">Étapes illustratives</p>
+        <p class="eyebrow">Étapes de traitement</p>
+
         <ul class="steps">
-          <li><div class="step-icon"><i class="fa-solid fa-file-lines"></i></div><div><strong>1. Vérification des informations</strong><span>Exemple d'étape : contrôler les informations liées à l'opération.</span></div></li>
-          <li><div class="step-icon"><i class="fa-solid fa-folder-open"></i></div><div><strong>2. Examen des justificatifs</strong><span>Les documents réellement nécessaires doivent être confirmés par l'établissement bancaire concerné.</span></div></li>
-          <li><div class="step-icon"><i class="fa-solid fa-circle-check"></i></div><div><strong>3. Mise à jour du statut</strong><span>Dans un système réel, seul l'établissement concerné peut confirmer la décision finale.</span></div></li>
+          <li>
+            <div class="step-icon">
+              <i class="fa-solid fa-file-lines"></i>
+            </div>
+
+            <div>
+              <strong>1. Vérification des informations</strong>
+              <span>
+                Contrôle des données du bénéficiaire et des
+                caractéristiques de l'opération.
+              </span>
+            </div>
+          </li>
+
+          <li>
+            <div class="step-icon">
+              <i class="fa-solid fa-folder-open"></i>
+            </div>
+
+            <div>
+              <strong>2. Examen des justificatifs</strong>
+              <span>
+                Les éventuels documents requis doivent être confirmés
+                auprès de l'établissement bancaire concerné.
+              </span>
+            </div>
+          </li>
+
+          <li>
+            <div class="step-icon">
+              <i class="fa-solid fa-circle-check"></i>
+            </div>
+
+            <div>
+              <strong>3. Mise à jour du statut</strong>
+              <span>
+                Le statut est mis à jour dans cette maquette à titre
+                illustratif. Une banque réelle doit confirmer le résultat
+                de son propre traitement.
+              </span>
+            </div>
+          </li>
         </ul>
+
         <div class="actions">
-          <a class="btn btn-secondary" href="historique_avec_grasso_demo.html"><i class="fa-solid fa-arrow-left"></i> Retour à l'historique</a>
-          <button class="btn btn-primary" type="button" onclick="alert('Simulation uniquement : aucune demande n’a été envoyée.')"><i class="fa-solid fa-circle-info"></i> Voir les informations</button>
+          <a class="btn btn-secondary"
+             href="historique_avec_grasso_demo.html">
+            <i class="fa-solid fa-arrow-left"></i>
+            Retour à l'historique
+          </a>
+
+          <button class="btn btn-primary"
+                  type="button"
+                  id="voirInformations">
+            <i class="fa-solid fa-circle-info"></i>
+            Consulter les informations
+          </button>
         </div>
       </section>
+
     </main>
-    <p class="footnote">Maquette d'interface à des fins de démonstration. Aucun transfert réel, justificatif bancaire ou frais de déblocage n'est créé ou validé par cette page.</p>
+
+    <p class="footnote">
+      Interface de démonstration. Les informations affichées ne constituent
+      ni une confirmation bancaire ni une preuve de transfert, de suspension
+      ou de disponibilité de fonds réels.
+    </p>
+
   </div>
+
   <script>
-    // Affiche uniquement les données de démonstration enregistrées depuis le formulaire.
-    const demoFields = {
-      detailCompte: localStorage.getItem('compte') === 'joint' ? 'Compte épargne ••••9042' : (localStorage.getItem('compte') ? 'Compte de chèques •••••9012' : 'Non renseigné'),
-      detailIban: localStorage.getItem('iban') || 'IT83K0329601601000066507560',
-      detailBic: localStorage.getItem('bic') || 'FIBKITMMXXX',
-      detailAdresse: localStorage.getItem('adresseBeneficiaire') || 'Non renseignée',
-      detailMotif: localStorage.getItem('motif') || 'Non renseigné',
-      detailDate: '08/10/2025'
-    };
-    Object.entries(demoFields).forEach(([id, value]) => {
-      const el = document.getElementById(id);
-      if (el) el.textContent = value;
-    });
-    const savedAmount = localStorage.getItem('montant');
-    if (savedAmount && Number.isFinite(Number(savedAmount))) {
-      document.querySelector('.amount').textContent = Number(savedAmount).toLocaleString('fr-FR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' €';
+    // Lecture des données saisies dans le formulaire de démonstration.
+    // Les valeurs sont affichées comme texte, sans exécuter de HTML.
+
+    function lireDonnee(cle, valeurParDefaut = "Non renseigné") {
+      try {
+        const valeur = localStorage.getItem(cle);
+        return valeur && valeur.trim()
+          ? valeur
+          : valeurParDefaut;
+      } catch (erreur) {
+        return valeurParDefaut;
+      }
     }
-    const savedBeneficiary = localStorage.getItem('beneficiaire');
-    if (savedBeneficiary) document.querySelector('.profile h2').textContent = savedBeneficiary;
+
+    function afficher(id, valeur) {
+      const element = document.getElementById(id);
+
+      if (element) {
+        element.textContent = valeur;
+      }
+    }
+
+    const typeCompte = lireDonnee("compte", "");
+
+    const compteAffiche =
+      typeCompte === "joint"
+        ? "Compte épargne ••••9042"
+        : typeCompte
+          ? "Compte de chèques •••••9012"
+          : "Non renseigné";
+
+    afficher("detailCompte", compteAffiche);
+    afficher("detailIban", lireDonnee("iban"));
+    afficher("detailBic", lireDonnee("bic"));
+    afficher("detailBanque", lireDonnee("banque"));
+    afficher("detailAdresse", lireDonnee("adresseBeneficiaire"));
+    afficher("detailMotif", lireDonnee("motif"));
+    afficher(
+      "detailBeneficiaire",
+      lireDonnee("beneficiaire", "Grasso Angelo Vincenzo")
+    );
+
+    const dateEnregistree = lireDonnee("dateVirement", "");
+
+    if (dateEnregistree) {
+      afficher("detailDate", dateEnregistree);
+    }
+
+    const montantEnregistre = lireDonnee("montant", "");
+
+    if (
+      montantEnregistre &&
+      Number.isFinite(Number(montantEnregistre)) &&
+      Number(montantEnregistre) >= 0
+    ) {
+      afficher(
+        "detailMontant",
+        Number(montantEnregistre).toLocaleString("fr-FR", {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        }) + " €"
+      );
+    }
+
+    document
+      .getElementById("voirInformations")
+      .addEventListener("click", function () {
+        document.querySelector(".notice").scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+      });
   </script>
+
 </body>
 </html>
