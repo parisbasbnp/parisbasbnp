@@ -18,9 +18,7 @@
       --bg: #f4f7f6;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -73,9 +71,7 @@
       letter-spacing: .3px;
     }
 
-    main {
-      padding: 20px;
-    }
+    main { padding: 20px; }
 
     .card {
       border: 1px solid var(--line);
@@ -99,6 +95,7 @@
       font-weight: 750;
       color: var(--red);
       margin: 0 0 14px;
+      overflow-wrap: anywhere;
     }
 
     .status {
@@ -135,6 +132,7 @@
     .profile h2 {
       margin: 0 0 5px;
       font-size: 17px;
+      overflow-wrap: anywhere;
     }
 
     .profile p {
@@ -143,9 +141,7 @@
       font-size: 13px;
     }
 
-    .details {
-      margin: 0;
-    }
+    .details { margin: 0; }
 
     .detail-row {
       display: flex;
@@ -161,9 +157,7 @@
       padding-bottom: 0;
     }
 
-    .detail-row dt {
-      color: var(--muted);
-    }
+    .detail-row dt { color: var(--muted); }
 
     .detail-row dd {
       margin: 0;
@@ -276,17 +270,10 @@
     }
 
     @media (max-width: 480px) {
-      main {
-        padding: 14px;
-      }
+      main { padding: 14px; }
+      .amount { font-size: 28px; }
 
-      .amount {
-        font-size: 28px;
-      }
-
-      .detail-row {
-        font-size: 13px;
-      }
+      .detail-row { font-size: 13px; }
     }
   </style>
 </head>
@@ -305,20 +292,25 @@
       </div>
     </header>
 
+    <div class="demo">
+      <i class="fa-solid fa-flask"></i>
+      SIMULATION — DONNÉES FICTIVES, SANS VALEUR BANCAIRE
+    </div>
+
     <main>
 
-      <!-- Montant et statut -->
+      <!-- Montant et état du déblocage -->
       <section class="card">
         <p class="eyebrow">Montant du transfert</p>
         <p class="amount" id="detailMontant">500 000,00 €</p>
 
         <span class="status">
           <i class="fa-solid fa-hourglass-half"></i>
-          Vérification en attente
+          Déblocage des fonds en attente
         </span>
       </section>
 
-      <!-- Coordonnées du bénéficiaire -->
+      <!-- Bénéficiaire et coordonnées bancaires -->
       <section class="card">
         <div class="profile">
           <div class="ghost" aria-hidden="true">
@@ -326,9 +318,7 @@
           </div>
 
           <div>
-            <h2 id="detailBeneficiaire">
-              Grasso Angelo Vincenzo
-            </h2>
+            <h2 id="detailBeneficiaire">Grasso Angelo Vincenzo</h2>
             <p>Bénéficiaire — données de démonstration</p>
           </div>
         </div>
@@ -377,41 +367,42 @@
 
           <div class="detail-row">
             <dt>Type d'opération</dt>
-            <dd>Virement bancaire (démo)</dd>
+            <dd>Virement — démonstration</dd>
           </div>
 
           <div class="detail-row">
-            <dt>Statut</dt>
+            <dt>Statut du transfert</dt>
             <dd style="color: #a66a00">
-              En attente de vérification
+              Déblocage des fonds en attente
             </dd>
           </div>
 
         </dl>
       </section>
 
-      <!-- Informations relatives au transfert -->
+      <!-- Informations relatives au déblocage -->
       <section class="card">
         <div class="notice">
           <i class="fa-solid fa-circle-info"></i>
 
           <div>
-            <h3>Informations relatives au transfert</h3>
+            <h3>État du déblocage des fonds</h3>
 
             <p>
-              Le transfert est actuellement en attente de vérification.
-              Des contrôles complémentaires peuvent être nécessaires afin
-              de confirmer la conformité des informations du bénéficiaire
-              et des données relatives à l’opération. Le traitement pourra
-              reprendre une fois les vérifications terminées. Pour connaître
-              la situation exacte d’un transfert réel, veuillez contacter
-              votre établissement bancaire.
+              Le déblocage des fonds correspondant au montant de
+              500 000,00 € est indiqué comme étant en attente dans
+              cette interface de démonstration. La mise à disposition
+              des fonds dépend de la confirmation du traitement par
+              l’établissement bancaire concerné. Pour obtenir des
+              informations précises sur le délai de traitement et
+              les éventuelles démarches requises, veuillez contacter
+              directement votre banque.
             </p>
           </div>
         </div>
       </section>
 
-      <!-- Étapes de traitement -->
+      <!-- Étapes indicatives -->
       <section class="card">
         <p class="eyebrow">Étapes de traitement</p>
 
@@ -424,7 +415,7 @@
             <div>
               <strong>1. Vérification des informations</strong>
               <span>
-                Contrôle des données du bénéficiaire et des
+                Contrôle des coordonnées du bénéficiaire et des
                 caractéristiques de l'opération.
               </span>
             </div>
@@ -452,9 +443,9 @@
             <div>
               <strong>3. Mise à jour du statut</strong>
               <span>
-                Le statut est mis à jour dans cette maquette à titre
-                illustratif. Une banque réelle doit confirmer le résultat
-                de son propre traitement.
+                Le statut affiché est indicatif. Seul l'établissement
+                bancaire concerné peut confirmer l'état réel du transfert
+                et la disponibilité des fonds.
               </span>
             </div>
           </li>
@@ -480,19 +471,20 @@
 
     <p class="footnote">
       Interface de démonstration. Les informations affichées ne constituent
-      ni une confirmation bancaire ni une preuve de transfert, de suspension
-      ou de disponibilité de fonds réels.
+      pas une confirmation bancaire, une preuve de transfert ou une
+      confirmation de disponibilité des fonds.
     </p>
 
   </div>
 
   <script>
-    // Lecture des données saisies dans le formulaire de démonstration.
-    // Les valeurs sont affichées comme texte, sans exécuter de HTML.
+    // Lecture sécurisée des données de démonstration enregistrées
+    // dans le navigateur depuis le formulaire précédent.
 
     function lireDonnee(cle, valeurParDefaut = "Non renseigné") {
       try {
         const valeur = localStorage.getItem(cle);
+
         return valeur && valeur.trim()
           ? valeur
           : valeurParDefaut;
@@ -509,32 +501,41 @@
       }
     }
 
+    // Compte utilisé dans la maquette
     const typeCompte = lireDonnee("compte", "");
 
-    const compteAffiche =
-      typeCompte === "joint"
-        ? "Compte épargne ••••9042"
-        : typeCompte
-          ? "Compte de chèques •••••9012"
-          : "Non renseigné";
+    let compteAffiche = "Non renseigné";
+
+    if (typeCompte === "joint") {
+      compteAffiche = "Compte épargne ••••9042";
+    } else if (typeCompte) {
+      compteAffiche = "Compte de chèques •••••9012";
+    }
 
     afficher("detailCompte", compteAffiche);
+
+    // Coordonnées du bénéficiaire
     afficher("detailIban", lireDonnee("iban"));
     afficher("detailBic", lireDonnee("bic"));
     afficher("detailBanque", lireDonnee("banque"));
     afficher("detailAdresse", lireDonnee("adresseBeneficiaire"));
     afficher("detailMotif", lireDonnee("motif"));
+
     afficher(
       "detailBeneficiaire",
       lireDonnee("beneficiaire", "Grasso Angelo Vincenzo")
     );
 
+    // Date : utiliser la date enregistrée si elle existe.
     const dateEnregistree = lireDonnee("dateVirement", "");
 
     if (dateEnregistree) {
       afficher("detailDate", dateEnregistree);
     }
 
+    // Le montant par défaut reste 500 000,00 €.
+    // Une autre valeur n'est affichée que si elle est enregistrée
+    // dans le formulaire de démonstration.
     const montantEnregistre = lireDonnee("montant", "");
 
     if (
@@ -551,6 +552,7 @@
       );
     }
 
+    // Le bouton fait défiler la page jusqu'au texte explicatif.
     document
       .getElementById("voirInformations")
       .addEventListener("click", function () {
@@ -563,3 +565,4 @@
 
 </body>
 </html>
+
