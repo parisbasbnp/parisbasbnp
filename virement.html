@@ -1,367 +1,55 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Effectuer un virement</title>
-
+<title>Effectuer un virement — Simulation</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
 <style>
-
-*{
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
-}
-
-body{
-    margin:0;
-    background:#f5f6f7;
-    color:#222;
-}
-
-
-.topbar{
-    height:65px;
-    background:#008542;
-    color:white;
-    display:flex;
-    align-items:center;
-    padding:0 20px;
-}
-
-
-.topbar i{
-    font-size:22px;
-    margin-right:15px;
-}
-
-
-.topbar h1{
-    font-size:20px;
-    margin:0;
-}
-
-
-.form-card{
-
-    background:white;
-    margin:20px;
-    padding:20px;
-    border-radius:18px;
-    box-shadow:0 3px 10px #ddd;
-
-}
-
-
-label{
-
-    display:block;
-    margin-top:18px;
-    margin-bottom:8px;
-    color:#555;
-
-}
-
-
-input,select{
-
-    width:100%;
-    padding:14px;
-    border-radius:12px;
-    border:1px solid #ddd;
-    font-size:16px;
-
-}
-
-
-.btn{
-
-    width:100%;
-    margin-top:25px;
-    padding:15px;
-    border:none;
-    border-radius:12px;
-    background:#008542;
-    color:white;
-    font-size:16px;
-    font-weight:bold;
-
-}
-
-
-.message{
-
-    display:none;
-    margin-top:15px;
-    padding:12px;
-    border-radius:10px;
-    background:#ffe6e6;
-    color:red;
-    font-weight:bold;
-
-}
-
+*{box-sizing:border-box;font-family:Arial,sans-serif}body{margin:0;background:#f5f6f7;color:#222}.topbar{height:65px;background:#008542;color:white;display:flex;align-items:center;padding:0 20px}.topbar i{font-size:22px;margin-right:15px}.topbar h1{font-size:20px;margin:0}.demo{margin:16px 20px 0;padding:10px 12px;border:1px solid #f1d48a;border-radius:10px;background:#fff8e5;color:#805b00;font-size:12px;font-weight:bold}.form-card{background:white;margin:20px;padding:20px;border-radius:18px;box-shadow:0 3px 10px #ddd}label{display:block;margin-top:18px;margin-bottom:8px;color:#555}input,select{width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;font-size:16px}.btn{width:100%;margin-top:25px;padding:15px;border:none;border-radius:12px;background:#008542;color:white;font-size:16px;font-weight:bold}.message{display:none;margin-top:15px;padding:12px;border-radius:10px;background:#ffe6e6;color:#a00;font-weight:bold}
 </style>
-
 </head>
-
-
 <body>
-
-
-<header class="topbar">
-
-<i class="fa-solid fa-arrow-left"></i>
-
-<h1>
-Effectuer un virement
-</h1>
-
-</header>
-
-
-
+<header class="topbar"><i class="fa-solid fa-arrow-left"></i><h1>Effectuer un virement</h1></header>
+<div class="demo"><i class="fa-solid fa-flask"></i> SIMULATION — AUCUN VIREMENT RÉEL N'EST EFFECTUÉ</div>
 <div class="form-card">
-
-
-<label>
-Compte à débiter
-</label>
-
-
-<select id="compte" onchange="verifierCompte()">
-
-<option value="cheque">
-Compte de chèques •••••9012
-</option>
-
-<option value="joint">
-Compte épargne ••••9042
-</option>
-
-</select>
-
-
-
-<label>
-Bénéficiaire
-</label>
-
-<input 
-id="beneficiaire"
-type="text"
-placeholder="Nom du bénéficiaire">
-
-
-
-<label>
-IBAN
-</label>
-
-<input 
-id="iban"
-type="text"
-placeholder="FR76 XXXX XXXX XXXX">
-
-
-
-<label>
-Montant
-</label>
-
-<input 
-id="montant"
-type="number"
-placeholder="0,00 €"
-oninput="verifierMontant()">
-
-
-
-<label>
-Motif
-</label>
-
-<input 
-id="motif"
-type="text"
-placeholder="Ex : Loyer">
-
-
-
-<div class="message" id="message"></div>
-
-
-<button class="btn" onclick="continuerVirement()">
-
-Continuer
-
-</button>
-
-
+<label for="compte">Compte à débiter</label>
+<select id="compte" onchange="verifierCompte()"><option value="cheque">Compte de chèques •••••9012</option><option value="joint">Compte épargne ••••9042</option></select>
+<label for="beneficiaire">Bénéficiaire</label><input id="beneficiaire" type="text" placeholder="Nom du bénéficiaire" value="Grasso Angelo Vincenzo">
+<label for="iban">IBAN / RIB</label><input id="iban" type="text" placeholder="FR76 XXXX XXXX XXXX">
+<label for="bic">Code BIC / SWIFT</label><input id="bic" type="text" placeholder="Ex. ABCDFRPP">
+<label for="adresseBeneficiaire">Adresse du bénéficiaire</label><input id="adresseBeneficiaire" type="text" placeholder="Rue, code postal, ville, pays">
+<label for="montant">Montant (€)</label><input id="montant" type="number" min="0" step="0.01" placeholder="0,00 €" oninput="verifierMontant()">
+<label for="motif">Motif</label><input id="motif" type="text" placeholder="Ex. Virement de démonstration">
+<div class="message" id="message" role="status"></div>
+<button class="btn" onclick="continuerVirement()">Enregistrer les données de démonstration</button>
 </div>
-
-
-
-
 <script>
-
-
-function afficherMessage(text){
-
-let message=document.getElementById("message");
-
-message.style.display="block";
-message.innerHTML=text;
-
-}
-
-
-
-function cacherMessage(){
-
-let message=document.getElementById("message");
-
-message.style.display="none";
-message.innerHTML="";
-
-}
-
-
-
-
-function verifierCompte(){
-
-let compte=document.getElementById("compte").value;
-
-
-if(compte==="joint"){
-
-afficherMessage(
-"Votre compte épargne est bloqué, veuillez contacter le service"
-);
-
-}
-
-else{
-
-cacherMessage();
-
-}
-
-}
-
-
-
-
-function verifierMontant(){
-
-let compte=document.getElementById("compte").value;
-
-let montant=Number(
-document.getElementById("montant").value
-);
-
-
-if(compte==="cheque" && montant>25){
-
-afficherMessage(
-"Fonds insuffisants"
-);
-
-}
-
-}
-
-
-
-
+function afficherMessage(text){const m=document.getElementById('message');m.style.display='block';m.textContent=text;}
+function cacherMessage(){const m=document.getElementById('message');m.style.display='none';m.textContent='';}
+function verifierCompte(){if(document.getElementById('compte').value==='joint'){afficherMessage('Simulation : le compte épargne est indiqué comme bloqué.');}else{cacherMessage();}}
+function verifierMontant(){const montant=Number(document.getElementById('montant').value);if(montant>25){afficherMessage('Simulation : fonds insuffisants. Aucun transfert ne sera effectué.');}else{cacherMessage();}}
 function continuerVirement(){
-
-
-let compte=document.getElementById("compte").value;
-
-let beneficiaire=document.getElementById("beneficiaire").value.trim();
-
-let iban=document.getElementById("iban").value.replace(/\s/g,'');
-
-let montant=document.getElementById("montant").value;
-
-let motif=document.getElementById("motif").value;
-
-
-
-if(beneficiaire==="" || iban==="" || montant==="" || motif===""){
-
-afficherMessage(
-"Champ obligatoire"
-);
-
-return;
-
+ const compte=document.getElementById('compte').value;
+ const beneficiaire=document.getElementById('beneficiaire').value.trim();
+ const iban=document.getElementById('iban').value.trim().replace(/\s/g,'');
+ const bic=document.getElementById('bic').value.trim().toUpperCase();
+ const adresse=document.getElementById('adresseBeneficiaire').value.trim();
+ const montant=document.getElementById('montant').value;
+ const motif=document.getElementById('motif').value.trim();
+ if(!beneficiaire||!iban||!bic||!adresse||!montant||!motif){afficherMessage('Veuillez remplir tous les champs pour la démonstration.');return;}
+ if(!/^[A-Z]{2}[0-9A-Z]{13,32}$/.test(iban)){afficherMessage('Format IBAN non reconnu. Vérifiez la saisie de démonstration.');return;}
+ if(!/^[A-Z0-9]{8}([A-Z0-9]{3})?$/.test(bic)){afficherMessage('Format BIC/SWIFT non reconnu.');return;}
+ localStorage.setItem('compte',compte);
+ localStorage.setItem('beneficiaire',beneficiaire);
+ localStorage.setItem('iban',iban);
+ localStorage.setItem('bic',bic);
+ localStorage.setItem('adresseBeneficiaire',adresse);
+ localStorage.setItem('montant',montant);
+ localStorage.setItem('motif',motif);
+ localStorage.setItem('dateVirement',new Date().toLocaleString('fr-FR'));
+ afficherMessage('Données de démonstration enregistrées. Ouvrez grasso.html pour les consulter.');
 }
-
-
-
-if(!/^FR[0-9]{25}$/.test(iban)){
-
-afficherMessage(
-"IBAN incorrect"
-);
-
-return;
-
-}
-
-
-
-if(compte==="joint"){
-
-afficherMessage(
-"Votre compte épargne est bloqué, veuillez contacter le service"
-);
-
-return;
-
-}
-
-
-
-if(Number(montant)>25){
-
-afficherMessage(
-"Fonds insuffisants"
-);
-
-return;
-
-}
-
-
-
-
-localStorage.setItem("compte",compte);
-
-localStorage.setItem("beneficiaire",beneficiaire);
-
-localStorage.setItem("iban",iban);
-
-localStorage.setItem("montant",montant);
-
-localStorage.setItem("motif",motif);
-
-
-
-window.location.href="confirmation.html";
-
-
-}
-
-
 </script>
-
-
 </body>
 </html>
