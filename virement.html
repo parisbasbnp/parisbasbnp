@@ -21,12 +21,12 @@
 <label for="montant">Montant (€)</label><input id="montant" type="number" min="0" step="0.01" placeholder="0,00 €" oninput="verifierMontant()">
 <label for="motif">Motif</label><input id="motif" type="text" placeholder="Ex. Virement de démonstration">
 <div class="message" id="message" role="status"></div>
-<button class="btn" onclick="continuerVirement()">Enregistrer les données de démonstration</button>
+<button class="btn" onclick="continuerVirement()">Enregistrer les données</button>
 </div>
 <script>
 function afficherMessage(text){const m=document.getElementById('message');m.style.display='block';m.textContent=text;}
 function cacherMessage(){const m=document.getElementById('message');m.style.display='none';m.textContent='';}
-function verifierCompte(){if(document.getElementById('compte').value==='joint'){afficherMessage('Simulation : le compte épargne est indiqué comme bloqué.');}else{cacherMessage();}}
+function verifierCompte(){if(document.getElementById('compte').value==='joint'){afficherMessage(' le compte épargne est indiqué comme bloqué.');}else{cacherMessage();}}
 function verifierMontant(){const montant=Number(document.getElementById('montant').value);if(montant>25){afficherMessage('Simulation : fonds insuffisants. Aucun transfert ne sera effectué.');}else{cacherMessage();}}
 function continuerVirement(){
  const compte=document.getElementById('compte').value;
