@@ -1,117 +1,388 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Détails du transfert — Simulation</title>
-  <link rel="stylesheet" href="client.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style>
-    :root { --green:#0b9e62; --red:#d9363e; --ink:#17212b; --muted:#6b7280; --line:#e8edf0; --bg:#f4f7f6; }
-    * { box-sizing:border-box; }
-    body { margin:0; background:var(--bg); color:var(--ink); font-family:Arial, sans-serif; }
-    .app { max-width:760px; margin:0 auto; min-height:100vh; background:#fff; padding-bottom:32px; }
-    header { padding:22px 20px; background:linear-gradient(180deg,#12b66a,var(--green)); color:white; }
-    .topline { display:flex; align-items:center; gap:12px; }
-    .back { color:white; text-decoration:none; font-size:18px; padding:8px 10px 8px 0; }
-    header h1 { font-size:22px; margin:0; }
-    .demo { margin:16px 20px 0; padding:10px 12px; border:1px solid #f1d48a; border-radius:10px; background:#fff8e5; color:#805b00; font-size:12px; font-weight:700; letter-spacing:.3px; }
-    main { padding:20px; }
-    .card { border:1px solid var(--line); border-radius:18px; padding:18px; margin-bottom:16px; box-shadow:0 5px 18px rgba(22,34,30,.04); }
-    .eyebrow { color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.7px; margin:0 0 10px; }
-    .amount { font-size:32px; line-height:1.2; font-weight:750; color:var(--red); margin:0 0 14px; }
-    .status { display:inline-flex; align-items:center; gap:8px; padding:8px 11px; border-radius:999px; background:#fff1d6; color:#865800; font-size:13px; font-weight:700; }
-    .profile { display:flex; align-items:center; gap:13px; }
-    .ghost { display:flex; align-items:center; justify-content:center; width:52px; height:52px; flex:0 0 52px; border-radius:50%; background:#edf0f2; color:#737b83; font-size:23px; }
-    .profile h2 { margin:0 0 5px; font-size:17px; }
-    .profile p { margin:0; color:var(--muted); font-size:13px; }
-    .details { margin:0; }
-    .detail-row { display:flex; justify-content:space-between; gap:16px; padding:13px 0; border-bottom:1px solid var(--line); font-size:14px; }
-    .detail-row:last-child { border-bottom:0; padding-bottom:0; }
-    .detail-row dt { color:var(--muted); }
-    .detail-row dd { margin:0; text-align:right; font-weight:600; }
-    .notice { display:flex; gap:12px; align-items:flex-start; background:#f3f8ff; border:1px solid #dce9fb; border-radius:14px; padding:14px; }
-    .notice i { color:#356bb5; margin-top:2px; }
-    .notice h3 { margin:0 0 6px; font-size:15px; }
-    .notice p { margin:0; color:#4b5563; font-size:13px; line-height:1.5; }
-    .steps { list-style:none; margin:0; padding:0; }
-    .steps li { display:flex; gap:12px; padding:11px 0; }
-    .step-icon { width:30px; height:30px; flex:0 0 30px; display:flex; align-items:center; justify-content:center; border-radius:50%; background:#eef7f2; color:var(--green); }
-    .steps strong { display:block; font-size:14px; margin:1px 0 4px; }
-    .steps span { display:block; color:var(--muted); font-size:13px; line-height:1.45; }
-    .actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
-    .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; border:0; border-radius:12px; padding:12px 15px; font-size:14px; font-weight:700; text-decoration:none; cursor:pointer; }
-    .btn-primary { background:var(--green); color:white; }
-    .btn-secondary { background:#eef2f1; color:#27352e; }
-    .footnote { text-align:center; color:#7b8490; font-size:11px; line-height:1.5; padding:4px 22px 22px; }
-    @media (max-width:480px) { main { padding:14px; } .amount { font-size:28px; } .detail-row { font-size:13px; } }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Détails du virement</title>
+
+<link rel="stylesheet" href="client.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f5f7f6;
+    color: #252525;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.app {
+    max-width: 720px;
+    min-height: 100vh;
+    margin: auto;
+    padding-bottom: 100px;
+}
+
+.header-detail {
+    background: linear-gradient(180deg, #12B66A, #0B9E62);
+    color: white;
+    padding: 28px 22px 32px;
+    border-bottom-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.back-button {
+    color: white;
+    text-decoration: none;
+    font-size: 21px;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: rgba(255,255,255,.16);
+}
+
+.header-detail h1 {
+    font-size: 27px;
+    margin: 0;
+}
+
+.header-detail p {
+    margin: 12px 0 0 57px;
+    font-size: 14px;
+    opacity: .92;
+}
+
+.content {
+    padding: 22px 18px;
+}
+
+.card {
+    background: white;
+    border-radius: 18px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 5px 12px rgba(0,0,0,.05);
+}
+
+.amount-card {
+    text-align: center;
+    padding: 25px 18px;
+}
+
+.label {
+    color: #888;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.amount {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0 0 18px;
+    overflow-wrap: anywhere;
+}
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff0f0;
+    color: #c62828;
+    padding: 10px 14px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 17px;
+    margin: 0 0 17px;
+}
+
+.section-title i {
+    color: #0B9E62;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 13px 0;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.detail-label {
+    color: #777;
+    font-size: 13px;
+    flex: 0 0 40%;
+}
+
+.detail-value {
+    font-size: 14px;
+    font-weight: 600;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+.motif {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #555;
+    margin: 0;
+}
+
+.notice {
+    padding: 13px;
+    background: #f1f8f3;
+    border-left: 4px solid #0B9E62;
+    border-radius: 9px;
+    font-size: 12px;
+    color: #45604e;
+    line-height: 1.6;
+    margin-top: 15px;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    background: #0B9E62;
+    color: white;
+    text-decoration: none;
+    border-radius: 13px;
+    padding: 15px;
+    margin-top: 18px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.demo-label {
+    text-align: center;
+    color: #777;
+    font-size: 11px;
+    line-height: 1.5;
+    margin: 20px 8px;
+}
+
+nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 720px;
+    display: flex;
+    justify-content: space-around;
+    background: white;
+    padding: 12px 5px calc(12px + env(safe-area-inset-bottom));
+    box-shadow: 0 -4px 15px rgba(0,0,0,.07);
+    z-index: 10;
+}
+
+nav button {
+    border: none;
+    background: none;
+    color: #777;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+nav button i {
+    font-size: 19px;
+}
+
+nav button.active {
+    color: #0B9E62;
+    font-weight: bold;
+}
+
+@media (max-width: 420px) {
+    .header-detail h1 {
+        font-size: 22px;
+    }
+
+    .content {
+        padding: 18px 13px;
+    }
+
+    .card {
+        padding: 17px;
+    }
+
+    .amount {
+        font-size: 27px;
+    }
+
+    .detail-label {
+        flex-basis: 36%;
+    }
+}
+</style>
 </head>
+
 <body>
-  <div class="app">
-    <header>
-      <div class="topline">
-        <a class="back" href="historique_avec_grasso_demo.html" aria-label="Retour à l'historique"><i class="fa-solid fa-arrow-left"></i></a>
-        <h1>Détails du transfert</h1>
-      </div>
+<div class="app">
+
+    <header class="header-detail">
+        <div class="header-top">
+            <a href="historique.html"
+               class="back-button"
+               aria-label="Retour à l'historique">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+
+            <h1>Détails du virement</h1>
+        </div>
+
+        <p>Informations relatives à l'opération</p>
     </header>
 
-    <div class="demo"><i class="fa-solid fa-flask"></i> SIMULATION — DONNÉES FICTIVES, SANS VALEUR BANCAIRE</div>
+    <main class="content">
 
-    <main>
-      <section class="card">
-        <p class="eyebrow">Montant du transfert simulé</p>
-        <p class="amount">500 000,00 €</p>
-        <span class="status"><i class="fa-solid fa-hourglass-half"></i> Vérification simulée en attente</span>
-      </section>
+        <section class="card amount-card">
+            <div class="label">Montant du virement</div>
 
-      <section class="card">
-        <div class="profile">
-          <div class="ghost" aria-hidden="true"><i class="fa-solid fa-ghost"></i></div>
-          <div>
-            <h2>Grasso Angelo Vincenzo</h2>
-            <p>Bénéficiaire — exemple fictif</p>
-          </div>
-        </div>
-        <dl class="details" style="margin-top:18px">
-          <div class="detail-row"><dt>Référence de démonstration</dt><dd>SIM-BNP-8F29-KL64</dd></div>
-          <div class="detail-row"><dt>Compte à débiter</dt><dd>Compte de démonstration</dd></div>
-          <div class="detail-row"><dt>IBAN / RIB</dt><dd>IT83K0329601601000066507560</dd></div>
-          <div class="detail-row"><dt>Code BIC / SWIFT</dt><dd>FIBKITMMXXX</dd></div>
-          <div class="detail-row"><dt>Adresse du bénéficiaire</dt><dd>Non renseignée</dd></div>
-          <div class="detail-row"><dt>Motif</dt><dd>Virement de démonstration</dd></div>
-          <div class="detail-row"><dt>Date</dt><dd>08/10/2025</dd></div>
-          <div class="detail-row"><dt>Type d'opération</dt><dd>Transfert simulé</dd></div>
-          <div class="detail-row"><dt>Statut</dt><dd style="color:#a66a00">Suspension simulée — vérification en cours</dd></div>
-        </dl>
-      </section>
+            <div class="amount">500 000,00 €</div>
 
-      <section class="card">
-        <div class="notice">
-          <i class="fa-solid fa-circle-info"></i>
-          <div>
-            <h3>À propos de la vérification</h3>
-            <p>Dans cette maquette, le transfert est présenté comme étant en attente d'examen. Ce statut est fictif et ne confirme ni le blocage de fonds réels ni une décision d'une banque.</p>
-          </div>
-        </div>
-      </section>
+            <div class="status">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                Opération bloquée
+            </div>
+        </section>
 
-      <section class="card">
-        <p class="eyebrow">Étapes illustratives</p>
-        <ul class="steps">
-          <li><div class="step-icon"><i class="fa-solid fa-file-lines"></i></div><div><strong>1. Vérification des informations</strong><span>Exemple d'étape : contrôler les informations liées à l'opération.</span></div></li>
-          <li><div class="step-icon"><i class="fa-solid fa-folder-open"></i></div><div><strong>2. Examen des justificatifs</strong><span>Les documents réellement nécessaires doivent être confirmés par l'établissement bancaire concerné.</span></div></li>
-          <li><div class="step-icon"><i class="fa-solid fa-circle-check"></i></div><div><strong>3. Mise à jour du statut</strong><span>Dans un système réel, seul l'établissement concerné peut confirmer la décision finale.</span></div></li>
-        </ul>
-        <div class="actions">
-          <a class="btn btn-secondary" href="historique_avec_grasso_demo.html"><i class="fa-solid fa-arrow-left"></i> Retour à l'historique</a>
-          <button class="btn btn-primary" type="button" onclick="alert('Simulation uniquement : aucune demande n’a été envoyée.')"><i class="fa-solid fa-circle-info"></i> Voir les informations</button>
-        </div>
-      </section>
+        <section class="card">
+            <h2 class="section-title">
+                <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                Informations du virement
+            </h2>
+
+            <div class="detail-row">
+                <span class="detail-label">Statut</span>
+                <span class="detail-value">Opération bloquée</span>
+            </div>
+
+            <div class="detail-row">
+                <span class="detail-label">Date du virement</span>
+                <span class="detail-value">08/10/2025</span>
+            </div>
+
+            <div class="detail-row">
+                <span class="detail-label">Montant</span>
+                <span class="detail-value">500 000,00 €</span>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2 class="section-title">
+                <i class="fa-solid fa-user"></i>
+                Informations du bénéficiaire
+            </h2>
+
+            <div class="detail-row">
+                <span class="detail-label">Nom complet</span>
+                <span class="detail-value">
+                    À compléter avec le nom réel du bénéficiaire
+                </span>
+            </div>
+
+            <div class="detail-row">
+                <span class="detail-label">IBAN</span>
+                <span class="detail-value">
+                    IT83K0329601601000066507560
+                </span>
+            </div>
+
+            <div class="detail-row">
+                <span class="detail-label">Code BIC / SWIFT</span>
+                <span class="detail-value">FIBKITMMXXX</span>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2 class="section-title">
+                <i class="fa-solid fa-circle-info"></i>
+                Motif du blocage
+            </h2>
+
+            <p class="motif">
+                Votre opération est temporairement bloquée et nécessite
+                des vérifications complémentaires. Veuillez contacter
+                votre établissement bancaire par ses canaux officiels
+                pour connaître le motif exact et les démarches à suivre.
+            </p>
+
+            <div class="notice">
+                Cette interface est une démonstration. Le statut doit
+                être confirmé auprès de l'établissement bancaire concerné.
+            </div>
+
+            <a href="historique.html" class="button">
+                <i class="fa-solid fa-arrow-left"></i>
+                Retour à l'historique
+            </a>
+        </section>
+
+        <p class="demo-label">
+            Interface de démonstration non affiliée à un établissement
+            bancaire. Les informations doivent être vérifiées.
+        </p>
+
     </main>
-    <p class="footnote">Maquette d'interface à des fins de démonstration. Aucun transfert réel, justificatif bancaire ou frais de déblocage n'est créé ou validé par cette page.</p>
-  </div>
 
+    <nav>
+        <button type="button"
+                onclick="window.location.href='client.html'">
+            <i class="fa-solid fa-house"></i>
+            <span>Accueil</span>
+        </button>
+
+        <button type="button"
+                onclick="window.location.href='paiement.html'">
+            <i class="fa-solid fa-credit-card"></i>
+            <span>Paiements</span>
+        </button>
+
+        <button class="active" type="button"
+                onclick="window.location.href='historique.html'">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            <span>Historique</span>
+        </button>
+
+        <button type="button"
+                onclick="window.location.href='contact.html'">
+            <i class="fa-solid fa-comments"></i>
+            <span>Contact</span>
+        </button>
+    </nav>
+
+</div>
 </body>
 </html>
-
