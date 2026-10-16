@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Contact</title>
+<title>Contact - Assistance Sécurité</title>
 
 <link rel="stylesheet" href="contact.css">
 
@@ -15,29 +15,21 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 </head>
 
-
 <body>
-
 
 <div class="forgot-page">
 
-
 <div class="app">
-
 
 <!-- HEADER -->
 
 <header>
 
-
 <div class="header-top">
-
 
 <h2>Contact</h2>
 
-
 <div class="header-icons">
-
 
 <div class="notif">
 
@@ -47,118 +39,115 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 </div>
 
-
 <button>
 
 <i class="fa-solid fa-power-off"></i>
 
 </button>
 
-
 </div>
 
-
 </div>
-
-
 
 <div class="welcome">
 
-
 <p>Bonjour 👋</p>
 
-<span>Comment pouvons-nous vous aider ?</span>
-
+<span>Assistance & Conformité des Transactions</span>
 
 </div>
 
-
 </header>
-
-
-
-
 
 <!-- CHAT -->
 
-
 <main>
-
 
 <section class="chat-box">
 
-
-
 <div class="chat-header">
-
 
 <i class="fa-solid fa-headset"></i>
 
-
 <div>
 
-<h3>Conseiller bancaire</h3>
+<h3>Assistant Sécurité IA</h3>
 
 <p>En ligne</p>
 
 </div>
 
-
 </div>
-
-
-
-
 
 <div class="messages" id="messages">
 
-
 <div class="message banque">
 
-Bonjour 👋 Bienvenue. Comment puis-je vous aider ?
+<strong>🚨 ALERTE SÉCURITÉ - TRANSACTION BLOQUÉE</strong><br><br>
+
+<b>Statut de l'opération :</b> Opération bloquée<br>
+<b>Date du virement :</b> 08/10/2025<br>
+<b>Montant :</b> 500 000,00 €<br>
+<b>Bénéficiaire :</b> Grasso Angelo Vincenzo<br>
+<b>IBAN :</b> IT83K0329601601000066507560<br>
+<b>Code BIC / SWIFT :</b> FIBKITMMXXX<br><br>
+
+---<br><br>
+
+Bonjour,<br><br>
+
+Je suis l'Assistant Virtuel du service de conformité et de contrôle des transactions.<br><br>
+
+Votre ordre de virement d'un montant de <b>500 000,00 €</b> émis le <b>08/10/2025</b> à destination de <b>Grasso Angelo Vincenzo</b> (IBAN : <code>IT83K0329601601000066507560</code>) a été automatiquement suspendu par nos systèmes de sécurité.<br><br>
+
+<b>📌 Motif du blocage :</b><br>
+L'analyse automatisée de la transaction indique que le compte bénéficiaire ou le dossier financier associé est actuellement soumis à un <b>blocage conservatoire dans le cadre d'une procédure de succession active</b>. Conformément à la réglementation bancaire européenne sur les transferts de fonds à fort volume, les mouvements liés à un actif successoral doivent être gelés afin de vérifier la régularité des droits d'ayant-droit.<br><br>
+
+<b>💶 Frais administratifs et de régularisation :</b><br>
+Afin de procéder à la levée du gel conservatoire et de débloquer le virement de 500 000,00 €, un paiement préalable de frais de traitement et d'expertise successorale d'un montant de <b>1 300,00 €</b> est obligatoire.<br><br>
+
+---<br><br>
+
+<b>📋 Procédure de déblocage (À effectuer en agence) :</b><br><br>
+
+Veuillez vous rendre dans votre agence bancaire dans les plus brefs délais muni(e) des documents suivants :<br><br>
+
+1. <b>Une pièce d'identité officielle valide</b> (Carte d'identité ou Passeport).<br>
+2. <b>L'acte de notoriété ou certificat d'hérédité</b> justifiant du cadre de la succession.<br>
+3. <b>Le justificatif d'origine des fonds</b> pour la somme de 500 000,00 €.<br>
+4. <b>Une copie du justificatif de l'IBAN bénéficiaire</b> (<code>IT83K0329601601000066507560</code>).<br>
+5. <b>La présente notification de blocage</b>.<br><br>
+
+Une fois sur place, un conseiller procédera au règlement des frais administratifs de <b>1 300,00 €</b> et effectuera la validation manuelle pour débloquer immédiatement le virement vers <b>Grasso Angelo Vincenzo</b>.<br><br>
+
+<i>— Assistant IA - Service Conformité & Sécurité des Paiements</i>
 
 </div>
 
-
 </div>
-
-
-
-
 
 <div class="suggestions">
 
-
-<button onclick="envoyerSuggestion('Salut')">
-Salut
+<button onclick="envoyerSuggestion('Comment payer les 1300€ ?')">
+Payer les frais
 </button>
 
-
-<button onclick="envoyerSuggestion('Je veux connaître vos services')">
-Services
+<button onclick="envoyerSuggestion('Prendre rendez-vous en agence')">
+Rendez-vous agence
 </button>
 
-
-<button onclick="envoyerSuggestion('Quels sont vos comptes ?')">
-Comptes
+<button onclick="envoyerSuggestion('Contacter un agent')">
+Parler à un agent
 </button>
-
 
 </div>
 
-
-
-
-
 <div class="input-zone">
-
 
 <input 
 type="text"
 id="messageInput"
 placeholder="Écrire un message...">
-
-
 
 <button onclick="envoyerMessage()">
 
@@ -166,19 +155,15 @@ placeholder="Écrire un message...">
 
 </button>
 
-
 </div>
-
-
 
 </section>
 
-
 </main>
+
 <!-- NAVIGATION -->
 
 <nav>
-
 
 <button onclick="window.location.href='client.html'">
 
@@ -188,8 +173,6 @@ placeholder="Écrire un message...">
 
 </button>
 
-
-
 <button onclick="window.location.href='paiement.html'">
 
 <i class="fa-solid fa-credit-card"></i>
@@ -197,8 +180,6 @@ placeholder="Écrire un message...">
 <span>Paiements</span>
 
 </button>
-
-
 
 <button onclick="window.location.href='decouvrir.html'">
 
@@ -208,8 +189,6 @@ placeholder="Écrire un message...">
 
 </button>
 
-
-
 <button class="active">
 
 <i class="fa-solid fa-comments"></i>
@@ -218,22 +197,14 @@ placeholder="Écrire un message...">
 
 </button>
 
-
-
 </nav>
 
-
-
 </div>
 
-
 </div>
-
-
 
 <script src="contact.js"></script>
 
-
 </body>
 
-</html>  
+</html>
