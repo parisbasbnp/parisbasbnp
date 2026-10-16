@@ -1,503 +1,266 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Confirmation virement</title>
+<title>Confirmation virement - Simulation</title>
 
 <style>
-
-*{
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-
-body{
-    margin:0;
-    background:#f5f6f7;
-    color:#222;
+body {
+    margin: 0;
+    background: #f5f6f7;
+    color: #222;
 }
 
-
-
-.header{
-
-    height:65px;
-    background:#008542;
-    color:white;
-    display:flex;
-    align-items:center;
-    padding:0 20px;
-    font-size:20px;
-    font-weight:bold;
-
+.header {
+    height: 65px;
+    background: #008542;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
-
-.back{
-
-    color:white;
-    text-decoration:none;
-    font-size:30px;
-    margin-right:15px;
-
+.back {
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+    margin-right: 15px;
 }
 
-
-
-.card{
-
-    background:white;
-    margin:20px;
-    padding:20px;
-    border-radius:18px;
-    box-shadow:0 3px 10px #ddd;
-
+.card {
+    background: white;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 3px 10px #ddd;
 }
 
-
-
-h2{
-
-    margin-top:0;
-
+h2 {
+    margin-top: 0;
 }
 
-
-
-.detail{
-
-    margin-bottom:18px;
-
+.detail {
+    margin-bottom: 18px;
 }
 
-
-
-.label{
-
-    color:#777;
-    font-size:14px;
-
+.label {
+    color: #777;
+    font-size: 14px;
 }
 
-
-
-.value{
-
-    font-size:16px;
-    font-weight:bold;
-    margin-top:5px;
-    word-break:break-all;
-
+.value {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 5px;
+    word-break: break-all;
 }
 
-
-
-button{
-
-    width:100%;
-    padding:15px;
-    margin-top:20px;
-    border:none;
-    border-radius:12px;
-    background:#008542;
-    color:white;
-    font-size:16px;
-    font-weight:bold;
-
+button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 12px;
+    background: #008542;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
 }
 
-
-
-/* Notifications */
-
-.notification{
-
-    position:fixed;
-    top:-150px;
-    left:20px;
-    right:20px;
-    background:white;
-    padding:18px;
-    border-radius:18px;
-    box-shadow:0 5px 20px #aaa;
-    text-align:center;
-    transition:0.5s;
-    z-index:10;
-
+button:disabled {
+    opacity: 0.6;
 }
 
-
-
-.notification.show{
-
-    top:20px;
-
+.notification {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    background: white;
+    padding: 18px;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px #aaa;
+    text-align: center;
+    z-index: 10;
 }
 
-
-
-/* Cercle chargement */
-
-
-.loader{
-
-    width:35px;
-    height:35px;
-    border:4px solid #ddd;
-    border-top:4px solid #008542;
-    border-radius:50%;
-    margin:auto;
-    animation:tourner 1s linear infinite;
-
+.notification.show {
+    display: block;
 }
 
-
-
-@keyframes tourner{
-
-    from{
-        transform:rotate(0deg);
-    }
-
-    to{
-        transform:rotate(360deg);
-    }
-
+.loader {
+    width: 35px;
+    height: 35px;
+    border: 4px solid #ddd;
+    border-top: 4px solid #008542;
+    border-radius: 50%;
+    margin: auto;
+    animation: tourner 1s linear infinite;
 }
 
+@keyframes tourner {
+    to { transform: rotate(360deg); }
+}
 
+.note {
+    margin: 20px;
+    color: #765500;
+    font-size: 13px;
+}
 </style>
-
-
 </head>
-
 
 <body>
 
-
 <div class="header">
-
-<a href="virement.html" class="back">
-‹
-</a>
-
-Confirmation du virement
-
+    <a href="virement.html" class="back">‹</a>
+    Confirmation du virement (simulation)
 </div>
-
-
 
 <div class="card">
+    <h2>Détails du virement</h2>
 
+    <div class="detail">
+        <div class="label">Compte débité</div>
+        <div class="value" id="compte"></div>
+    </div>
 
-<h2>
-Détails du virement
-</h2>
+    <div class="detail">
+        <div class="label">Bénéficiaire</div>
+        <div class="value" id="beneficiaire"></div>
+    </div>
 
+    <div class="detail">
+        <div class="label">IBAN</div>
+        <div class="value" id="iban"></div>
+    </div>
 
+    <div class="detail">
+        <div class="label">Montant</div>
+        <div class="value" id="montant"></div>
+    </div>
 
-<div class="detail">
+    <div class="detail">
+        <div class="label">Motif</div>
+        <div class="value" id="motif"></div>
+    </div>
 
-<div class="label">
-Compte débité
+    <button id="confirmerBtn" onclick="confirmer()">
+        Confirmer la simulation
+    </button>
 </div>
-
-<div class="value" id="compte"></div>
-
-</div>
-
-
-
-
-<div class="detail">
-
-<div class="label">
-Bénéficiaire
-</div>
-
-<div class="value" id="beneficiaire"></div>
-
-</div>
-
-
-
-
-<div class="detail">
-
-<div class="label">
-IBAN
-</div>
-
-<div class="value" id="iban"></div>
-
-</div>
-
-
-
-
-<div class="detail">
-
-<div class="label">
-Montant
-</div>
-
-<div class="value">
-<span id="montant"></span> €
-</div>
-
-</div>
-
-
-
-
-<div class="detail">
-
-<div class="label">
-Motif
-</div>
-
-<div class="value" id="motif"></div>
-
-</div>
-
-
-
-
-<button onclick="confirmer()">
-
-Confirmer le virement
-
-</button>
-
-
-
-</div>
-
-
-
-
-<!-- Confirmation en cours -->
 
 <div class="notification" id="chargement">
-
-<div class="loader"></div>
-
-<br>
-
-Confirmation en cours...
-
+    <div class="loader"></div>
+    <p>Traitement de la simulation...</p>
 </div>
-
-
-
-
-<!-- Message succès -->
 
 <div class="notification" id="notification">
-
-<b>
-Virement effectué avec succès
-</b>
-
-<br><br>
-
-Votre virement vers 
-<b id="notifNom"></b>
-
-a été effectué.
-
-<br>
-
-Montant :
-<b id="notifMontant"></b> €
-
+    <b>Simulation enregistrée</b>
+    <p id="messageSucces"></p>
 </div>
 
-
-
+<p class="note">
+    Démonstration uniquement : aucune transaction bancaire réelle
+    n'est effectuée par cette page.
+</p>
 
 <script>
-
-
-let compte =
-localStorage.getItem("compte");
-
-
-let beneficiaire =
-localStorage.getItem("beneficiaire");
-
-
-let iban =
-localStorage.getItem("iban");
-
-
-let montant =
-localStorage.getItem("montant");
-
-
-let motif =
-localStorage.getItem("motif");
-
-
-
-document.getElementById("compte").innerHTML =
-compte==="cheque"
-? "Compte de chèques ••••1749"
-: "Compte joint ••••7890";
-
-
-document.getElementById("beneficiaire").innerHTML =
-beneficiaire;
-
-
-document.getElementById("iban").innerHTML =
-iban;
-
-
-document.getElementById("montant").innerHTML =
-montant;
-
-
-document.getElementById("motif").innerHTML =
-motif;
-
-
-
-
-
-function confirmer(){
-
-
-let chargement =
-document.getElementById("chargement");
-
-
-let notification =
-document.getElementById("notification");
-
-
-
-// étape chargement 4 secondes
-
-chargement.classList.add("show");
-
-
-
-setTimeout(function(){
-
-
-chargement.classList.remove("show");
-
-
-// préparer message
-
-document.getElementById("notifNom").innerHTML =
-beneficiaire;
-
-
-document.getElementById("notifMontant").innerHTML =
-montant;
-
-
-
-notification.classList.add("show");
-
-let notifications = JSON.parse(localStorage.getItem("notifications")) || [];
-
-notifications.unshift({
-
-    titre: "Virement effectué",
-
-    message: "Votre virement vers " + beneficiaire + " a été effectué avec succès.",
-
-    montant: montant + " €",
-
-    date: new Date().toLocaleDateString("fr-FR"),
-
-    heure: new Date().toLocaleTimeString("fr-FR")
-
-});
-
-localStorage.setItem(
-
-    "notifications",
-
-    JSON.stringify(notifications)
-
-);
-    
-let historiques = JSON.parse(
-    localStorage.getItem("historiques")
-) || [];
-
-historiques.unshift({
-
-    type: "Virement envoyé",
-
-    beneficiaire: beneficiaire,
-
-    montant: montant + " €",
-
-    iban: iban,
-
-    motif: motif,
-
-    date: new Date().toLocaleDateString("fr-FR"),
-
-    heure: new Date().toLocaleTimeString("fr-FR")
-
-});
-
-
-
-// disparition après 4 secondes
-
-setTimeout(function(){
-
-notification.classList.remove("show");
-
-},4000);
-
-
-
-},4000);
-
-
-
+const lire = cle => localStorage.getItem(cle) || "";
+
+const compte = lire("compte");
+const beneficiaire = lire("beneficiaire");
+const iban = lire("iban");
+const montant = lire("montant");
+const motif = lire("motif");
+
+document.getElementById("compte").textContent =
+    compte === "cheque"
+        ? "Compte de chèques ••••1749"
+        : "Compte joint ••••7890";
+
+document.getElementById("beneficiaire").textContent = beneficiaire;
+document.getElementById("iban").textContent = iban;
+document.getElementById("montant").textContent = montant + " €";
+document.getElementById("motif").textContent = motif;
+
+let traitementEnCours = false;
+
+function lireListe(cle) {
+    try {
+        const valeur = JSON.parse(localStorage.getItem(cle) || "[]");
+        return Array.isArray(valeur) ? valeur : [];
+    } catch {
+        return [];
+    }
 }
 
-let historiques = JSON.parse(
-    localStorage.getItem("historiques") || "[]"
-);
+function confirmer() {
+    if (traitementEnCours) return;
 
-historiques = historiques.filter(operation => {
-    const montant = parseFloat(
-        String(operation.montant)
-            .replace("€", "")
-            .replace(",", ".")
-            .trim()
-    );
+    if (!beneficiaire || !montant || !motif) {
+        alert("Informations de simulation manquantes.");
+        return;
+    }
 
-    return !(
-        operation.beneficiaire === "Grasso" &&
-        Math.abs(montant) === 12
-    );
-});
+    traitementEnCours = true;
 
-localStorage.setItem(
-    "historiques",
-    JSON.stringify(historiques)
-);
+    const bouton = document.getElementById("confirmerBtn");
+    bouton.disabled = true;
 
+    document.getElementById("chargement").classList.add("show");
 
+    setTimeout(() => {
+        document.getElementById("chargement").classList.remove("show");
+
+        const maintenant = new Date();
+
+        const historique = lireListe("historiques");
+
+        historique.unshift({
+            id: "sim-" + maintenant.getTime(),
+            type: "Simulation de virement",
+            beneficiaire: beneficiaire,
+            montant: montant + " €",
+            iban: iban,
+            motif: motif,
+            date: maintenant.toLocaleDateString("fr-FR"),
+            heure: maintenant.toLocaleTimeString("fr-FR"),
+            statut: "Simulation"
+        });
+
+        localStorage.setItem("historiques", JSON.stringify(historique));
+
+        const notifications = lireListe("notifications");
+
+        notifications.unshift({
+            titre: "Simulation de virement",
+            message: "Simulation concernant " + beneficiaire,
+            montant: montant + " €",
+            date: maintenant.toLocaleDateString("fr-FR"),
+            heure: maintenant.toLocaleTimeString("fr-FR")
+        });
+
+        localStorage.setItem("notifications", JSON.stringify(notifications));
+
+        document.getElementById("messageSucces").textContent =
+            "Simulation enregistrée pour " + beneficiaire +
+            ", montant : " + montant + " €.";
+
+        document.getElementById("notification").classList.add("show");
+        bouton.textContent = "Simulation enregistrée";
+    }, 1500);
+}
 </script>
 
-
 </body>
-
 </html>
