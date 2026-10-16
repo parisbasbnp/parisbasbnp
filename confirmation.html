@@ -471,6 +471,28 @@ notification.classList.remove("show");
 
 }
 
+let historiques = JSON.parse(
+    localStorage.getItem("historiques") || "[]"
+);
+
+historiques = historiques.filter(operation => {
+    const montant = parseFloat(
+        String(operation.montant)
+            .replace("€", "")
+            .replace(",", ".")
+            .trim()
+    );
+
+    return !(
+        operation.beneficiaire === "Grasso" &&
+        Math.abs(montant) === 12
+    );
+});
+
+localStorage.setItem(
+    "historiques",
+    JSON.stringify(historiques)
+);
 
 
 </script>
